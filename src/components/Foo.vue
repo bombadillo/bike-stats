@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -5,6 +7,10 @@
 </template>
 
 <script>
+import config from '@/config/index'
+
+console.log(config)
+
 export default {
   name: 'Foo',
   data() {
