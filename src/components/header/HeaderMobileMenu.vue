@@ -1,10 +1,10 @@
 
 
 <template>
-  <div class="block lg:hidden md:hidden w-full flex-grow">
-    <div class="text-sm lg:flex-grow">
-      <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">Home</router-link>
-      <router-link to="/foo" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">Foo</router-link>
+  <div class="block w-full flex-grow mt-4">
+    <div class="text-sm text-center">
+      <router-link to="/" class="link block text-white hover:text-white no-underline mt-1">Home</router-link>
+      <router-link to="/foo" class="link block text-white hover:text-white no-underline mt-1">Foo</router-link>
     </div>
   </div>
 </template>
@@ -16,4 +16,8 @@ export default {
 </script>
 
 <style scoped>
+.link {
+  background-color: rgba(0,0,0,0.1);
+  padding: 10px;
+}
 </style>
