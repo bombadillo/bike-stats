@@ -8,7 +8,12 @@ if (isProd) {
   }
 } else {
   config = {
-    env: 'dev'
+    env: 'dev',
+    stravaApi: {
+      clientId: 15277,
+      redirectUri: 'http://localhost:8080/strava/authorised',
+      responseType: 'code'
+    }
   }
 }
 

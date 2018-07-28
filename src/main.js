@@ -6,12 +6,14 @@ import router from './router'
 import Header from './components/header/Header'
 import Hamburger from './components/header/Hamburger'
 import HeaderMobileMenu from './components/header/HeaderMobileMenu'
+import StravaGetAuth from './components/strava/StravaGetAuth'
 
 Vue.config.productionTip = false
 
 Vue.component('Header', Header)
 Vue.component('Hamburger', Hamburger)
 Vue.component('HeaderMobileMenu', HeaderMobileMenu)
+Vue.component('StravaGetAuth', StravaGetAuth)
 
 new Vue({
   el: '#app',
