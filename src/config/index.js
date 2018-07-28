@@ -4,7 +4,15 @@ let config = {}
 
 if (isProd) {
   config = {
-    env: 'prod'
+    env: 'prod',
+    stravaApi: {
+      stravaAuthUrl: 'https://www.strava.com/oauth/authorize',
+      stravaAccessTokenUrl: 'https://www.strava.com/oauth/token',
+      clientId: 27343,
+      clientSecret: '57230d9e96cf5eb1f1cf744b6947919ad51a2e52',
+      redirectUri: 'https://chrismumford.xyz/bikestats/strava/authorised',
+      responseType: 'code'
+    }
   }
 } else {
   config = {
