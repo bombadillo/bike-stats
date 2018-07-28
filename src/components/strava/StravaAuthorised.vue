@@ -4,9 +4,15 @@
   <div class="flex mb-4 justify-center">
     <div class="lg:w-1/2 rounded overflow-hidden shadow-lg mx-6 my-2 lg:mt-12 w-full"> 
       <div class="text-center mt-4">
-        <p v-if="!athlete" class="text-green-dark px-6 py-4">
+        <p v-if="!athlete && !stravaAuthError" class="text-green-dark px-6 py-4">
           <i class="fab fa-strava"></i> {{msg}}
         </p>
+
+        <p v-if="stravaAuthError" class="text-red-dark px-6 py-4">
+          <i class="fab fa-strava"></i> {{stravaAuthErrorMsg}}
+        </p>
+
+        
 
         <div v-if="athlete">          
           <p class="px-6 pt-4 pb-6">
@@ -33,7 +39,9 @@ export default {
   data() {
     return {
       msg: 'Syncing with strava...',
-      athlete: undefined
+      stravaAuthErrorMsg: 'Failed to sync with strava',
+      athlete: undefined,
+      stravaAuthError: false
     }
   },
   created: function() {
@@ -47,6 +55,9 @@ export default {
           this.$store.dispatch('setAthlete', this)
           // TODO redirect to profile or some other component
         }
+      })
+      .catch(error => {
+        this.stravaAuthError = true
       })
   }
 }

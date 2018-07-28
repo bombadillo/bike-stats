@@ -14,7 +14,18 @@
       </div>
     </div>
 
-    <router-view v-if="loaded"/>
+    <div v-if="stravaAuthError" class="flex mb-4 justify-center">
+      <div class="lg:w-1/2 rounded overflow-hidden shadow-lg mx-6 my-2 lg:mt-12 w-full"> 
+        <div class="text-center mt-4">
+          <p class="text-red-dark px-6 py-4">
+            <i class="fab fa-strava"></i> {{stravaAuthMsg}}
+          </p>
+        
+        </div>
+      </div>
+    </div>    
+
+    <router-view v-if="loaded && !stravaAuthError"/>
   </div>
 </template>
 
@@ -27,7 +38,9 @@ export default {
   data() {
     return {
       msg: 'Syncing with Strava',
-      loaded: false
+      stravaAuthMsg: 'Failed to sync with Strava',
+      loaded: false,
+      stravaAuthError: false
     }
   },
   created: function() {
@@ -44,6 +57,9 @@ export default {
         this.athlete = response.athlete
         this.$store.dispatch('setAthlete', this)
       }
+    }).catch(error => {
+      this.loaded = true
+      this.stravaAuthError = true
     })
   }
 }
