@@ -3,8 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Header from './components/header/Header'
+import Hamburger from './components/header/Hamburger'
+import HeaderMobileMenu from './components/header/HeaderMobileMenu'
 
 Vue.config.productionTip = false
+
+Vue.component('Header', Header)
+Vue.component('Hamburger', Hamburger)
+Vue.component('HeaderMobileMenu', HeaderMobileMenu)
 
 new Vue({
   el: '#app',
