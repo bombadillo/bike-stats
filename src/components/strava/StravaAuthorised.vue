@@ -43,8 +43,8 @@ export default {
       .retrieve(this.$route.query.code)
       .then(response => {
         if (response.athlete) {
-          this.athlete = response.athlete          
-          this.$store.dispatch('setAthlete', this)          
+          this.athlete = response.athlete
+          this.$store.dispatch('setAthlete', this)
         }
       })
   }
