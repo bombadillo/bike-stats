@@ -42,6 +42,7 @@ export default {
       .then(response => {
         if (response.athlete) {
           this.athlete = response.athlete
+          this.$store.dispatch("setAthlete", this);
         }
       })
   }
