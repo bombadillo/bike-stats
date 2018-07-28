@@ -14,7 +14,7 @@
 
 <script>
 import config from '@/config/index'
-import stravaRedirector from '../../services/strava/stravaRedirector.js'
+import stravaRedirector from '../../services/strava/stravaRedirector'
 
 export default {
   name: 'StravaGetAuth',
