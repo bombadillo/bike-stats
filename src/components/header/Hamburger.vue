@@ -20,8 +20,8 @@ export default {
     }
   },
   watch: {
-    '$route' (to, from) {
-      this.toggleMobileDropdown();
+    $route(to, from) {
+      this.toggleMobileDropdown()
     }
   }
 }
