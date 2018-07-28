@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .link {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 10px;
 }
 </style>
