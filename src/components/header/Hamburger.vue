@@ -9,11 +9,6 @@
 <script>
 export default {
   name: 'MobileMenu',
-  data() {
-    return {
-      showMobileDropdown: false
-    }
-  },
   methods: {
     toggleMobileDropdown: function(event) {
       this.$emit('clicked')
@@ -21,7 +16,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.toggleMobileDropdown()
+      this.$emit('clicked', true)
     }
   }
 }

@@ -28,9 +28,8 @@ export default {
     }
   },
   methods: {
-    toggleMobileDropdown: function() {
-      console.log('hey, child')
-      this.showMobileDropdown = !this.showMobileDropdown
+    toggleMobileDropdown: function(hide) {
+      this.showMobileDropdown = hide ? false : !this.showMobileDropdown
     }
   }
 }
