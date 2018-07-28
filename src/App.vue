@@ -28,7 +28,7 @@ export default {
     return {
       msg: 'Syncing with Strava',
       loaded: false
-    } 
+    }
   },
   created: function() {
     let stravaAuthCode = localStorage.getItem('stravaAuthCode')
@@ -38,15 +38,13 @@ export default {
       return
     }
 
-    stravaAccessTokenRetriever
-      .retrieve(stravaAuthCode)
-      .then(response => {
-        if (response.athlete) {
-          this.loaded = true
-          this.athlete = response.athlete
-          this.$store.dispatch('setAthlete', this)
-        }
-      })        
+    stravaAccessTokenRetriever.retrieve(stravaAuthCode).then(response => {
+      if (response.athlete) {
+        this.loaded = true
+        this.athlete = response.athlete
+        this.$store.dispatch('setAthlete', this)
+      }
+    })
   }
 }
 </script>
