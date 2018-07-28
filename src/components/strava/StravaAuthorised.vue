@@ -45,6 +45,7 @@ export default {
         if (response.athlete) {
           this.athlete = response.athlete
           this.$store.dispatch('setAthlete', this)
+          // TODO redirect to profile or some other component
         }
       })
   }
