@@ -7,6 +7,8 @@ import Header from './components/header/Header'
 import Hamburger from './components/header/Hamburger'
 import HeaderMobileMenu from './components/header/HeaderMobileMenu'
 import StravaGetAuth from './components/strava/StravaGetAuth'
+import Profile from './components/profile/Profile'
+
 import store from './store'
 
 Vue.config.productionTip = false
@@ -15,6 +17,7 @@ Vue.component('Header', Header)
 Vue.component('Hamburger', Hamburger)
 Vue.component('HeaderMobileMenu', HeaderMobileMenu)
 Vue.component('StravaGetAuth', StravaGetAuth)
+Vue.component('Profile', Profile)
 
 new Vue({
   el: '#app',

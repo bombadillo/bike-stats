@@ -12,7 +12,7 @@
     <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right">
       <div class="text-sm lg:flex-grow">
         <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Home</router-link>
-        <router-link to="/foo" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Foo</router-link>
+        <router-link to="/profile" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Profile</router-link>
       </div>
     </div>    
   </nav>

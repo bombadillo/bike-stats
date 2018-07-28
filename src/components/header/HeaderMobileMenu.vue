@@ -4,7 +4,7 @@
   <div class="block w-full flex-grow mt-4">
     <div class="text-sm text-center">
       <router-link to="/" class="link block text-white hover:text-white no-underline mt-1">Home</router-link>
-      <router-link to="/foo" class="link block text-white hover:text-white no-underline mt-1">Foo</router-link>
+      <router-link to="/profile" class="link block text-white hover:text-white no-underline mt-1">Profile</router-link>
     </div>
   </div>
 </template>
