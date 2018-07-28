@@ -37,11 +37,13 @@ export default {
     }
   },
   created: function() {
-    stravaAccessTokenRetriever.retrieve(this.$route.query.code).then(response => {
-      if (response.athlete) {
-        this.athlete = response.athlete
-      }
-    })
+    stravaAccessTokenRetriever
+      .retrieve(this.$route.query.code)
+      .then(response => {
+        if (response.athlete) {
+          this.athlete = response.athlete
+        }
+      })
   }
 }
 </script>
