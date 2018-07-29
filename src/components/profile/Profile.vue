@@ -3,8 +3,7 @@
     <div class="flex my-4 justify-center">
       <h1>My Profile</h1>
     </div>
-    <div class="flex mb-4 justify-center">
-      <div class="lg:w-1/2 rounded overflow-hidden shadow-lg mx-6 my-2 lg:mt-12 w-full"> 
+      <Card>
         <div class="mt-4">
           <p v-if="!athlete" class="text-green-dark px-6 py-4 text-center">
             <i class="fab fa-strava"></i> {{msg}}
@@ -35,8 +34,7 @@
           </div>
         
         </div>
-      </div>
-    </div>
+      </Card>
   </div>
 </template>
 

@@ -8,6 +8,7 @@ import Hamburger from './components/header/Hamburger'
 import HeaderMobileMenu from './components/header/HeaderMobileMenu'
 import StravaGetAuth from './components/strava/StravaGetAuth'
 import Profile from './components/profile/Profile'
+import Card from './components/elements/Card'
 
 import store from './store'
 
@@ -18,6 +19,7 @@ Vue.component('Hamburger', Hamburger)
 Vue.component('HeaderMobileMenu', HeaderMobileMenu)
 Vue.component('StravaGetAuth', StravaGetAuth)
 Vue.component('Profile', Profile)
+Vue.component('Card', Card)
 
 new Vue({
   el: '#app',
