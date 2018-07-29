@@ -9,6 +9,9 @@ import HeaderMobileMenu from './components/header/HeaderMobileMenu'
 import StravaGetAuth from './components/strava/StravaGetAuth'
 import Profile from './components/profile/Profile'
 import Card from './components/elements/Card'
+import StravaRedirect from './components/StravaRedirect'
+import Dashboard from './components/dashboard/Dashboard'
+import RecentStats from './components/stats/RecentStats'
 
 import store from './store'
 
@@ -20,6 +23,9 @@ Vue.component('HeaderMobileMenu', HeaderMobileMenu)
 Vue.component('StravaGetAuth', StravaGetAuth)
 Vue.component('Profile', Profile)
 Vue.component('Card', Card)
+Vue.component('StravaRedirect', StravaRedirect)
+Vue.component('Dashboard', Dashboard)
+Vue.component('RecentStats', RecentStats)
 
 new Vue({
   el: '#app',

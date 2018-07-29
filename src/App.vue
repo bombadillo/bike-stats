@@ -4,19 +4,15 @@
 
     <!-- TODO find out if we can have a card component to reuse the html -->
     <Card v-if="!loaded">
-      <div class="text-center mt-4">
-        <p class="text-black px-6 py-4">
-          <i class="fab fa-strava"></i> {{msg}}
-        </p>
-      </div>
+      <p class="text-black px-6 py-4">
+        <i class="fab fa-strava"></i> {{msg}}
+      </p>
     </Card>
 
     <Card v-if="stravaAuthError">
-      <div class="text-center mt-4">
-        <p class="text-red-dark px-6 py-4">
-          <i class="fab fa-strava"></i> {{stravaAuthMsg}}
-        </p>
-      </div>
+      <p class="text-red-dark px-6 py-4">
+        <i class="fab fa-strava"></i> {{stravaAuthMsg}}
+      </p>
     </Card>
 
     <router-view v-if="loaded && !stravaAuthError" />
@@ -39,7 +35,6 @@ export default {
   },
   created: function() {
     let stravaAuthCode = localStorage.getItem('stravaAuthCode')
-    console.log(stravaAuthCode)
     if (!stravaAuthCode) {
       this.loaded = true
       return
@@ -51,6 +46,7 @@ export default {
         if (response.athlete) {
           this.loaded = true
           this.athlete = response.athlete
+          localStorage.setItem('stravaAccessToken', response.access_token)
           this.$store.dispatch('setAthlete', this)
         }
       })
