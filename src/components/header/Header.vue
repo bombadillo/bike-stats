@@ -2,7 +2,10 @@
   <nav class="flex items-center justify-between flex-wrap bg-blue p-6">
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <span class="font-semibold text-xl tracking-tight">
-        <router-link to="/" class="no-underline text-white brand"><span class="logo">🚲</span> <span class="text">Bike Stats</span></router-link>
+        <router-link to="/" class="no-underline text-white brand">
+          <span class="logo">🚲</span>
+          <span class="text">Bike Stats</span>
+        </router-link>
       </span>
     </div>
 
@@ -14,7 +17,7 @@
         <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Home</router-link>
         <router-link to="/profile" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Profile</router-link>
       </div>
-    </div>    
+    </div>
   </nav>
 </template>
 
