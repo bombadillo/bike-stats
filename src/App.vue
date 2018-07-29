@@ -51,16 +51,19 @@ export default {
       return
     }
 
-    stravaAccessTokenRetriever.retrieve(stravaAuthCode).then(response => {
-      if (response.athlete) {
+    stravaAccessTokenRetriever
+      .retrieve(stravaAuthCode)
+      .then(response => {
+        if (response.athlete) {
+          this.loaded = true
+          this.athlete = response.athlete
+          this.$store.dispatch('setAthlete', this)
+        }
+      })
+      .catch(error => {
         this.loaded = true
-        this.athlete = response.athlete
-        this.$store.dispatch('setAthlete', this)
-      }
-    }).catch(error => {
-      this.loaded = true
-      this.stravaAuthError = true
-    })
+        this.stravaAuthError = true
+      })
   }
 }
 </script>

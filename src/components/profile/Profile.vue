@@ -58,7 +58,6 @@ export default {
   },
   methods: {
     formatDate: function(date) {
-    
       return dateFormatter.format(date)
     }
   }
