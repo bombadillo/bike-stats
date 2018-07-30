@@ -34,7 +34,7 @@ export default {
     this.getStravaAuthCode(this.$route.query.code)
     setTimeout(() => {
       this.$router.push('/')
-    }, 500)
+    }, 1000)
   }
 }
 </script>

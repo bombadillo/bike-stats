@@ -13,6 +13,7 @@ import StravaRedirect from './components/strava/StravaRedirect'
 import Dashboard from './components/dashboard/Dashboard'
 import RecentStats from './components/stats/RecentStats'
 import VueContentPlaceholders from 'vue-content-placeholders'
+import Logout from './components/Logout'
 
 import store from './store'
 
@@ -28,6 +29,7 @@ Vue.component('Card', Card)
 Vue.component('StravaRedirect', StravaRedirect)
 Vue.component('Dashboard', Dashboard)
 Vue.component('RecentStats', RecentStats)
+Vue.component('Logout', Logout)
 
 new Vue({
   el: '#app',
