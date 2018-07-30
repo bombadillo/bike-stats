@@ -9,7 +9,7 @@ import HeaderMobileMenu from './components/header/HeaderMobileMenu'
 import StravaGetAuth from './components/strava/StravaGetAuth'
 import Profile from './components/profile/Profile'
 import Card from './components/elements/Card'
-import StravaRedirect from './components/StravaRedirect'
+import StravaRedirect from './components/strava/StravaRedirect'
 import Dashboard from './components/dashboard/Dashboard'
 import RecentStats from './components/stats/RecentStats'
 

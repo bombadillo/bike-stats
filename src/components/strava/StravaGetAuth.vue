@@ -1,5 +1,3 @@
-
-
 <template>
   <Card class="text-center">
     <p class="text-grey-darker px-6 py-4 text-sm">

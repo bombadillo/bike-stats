@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Foo from '@/components/Foo'
 import StravaGetAuth from '@/components/strava/StravaGetAuth'
 import StravaAuthorised from '@/components/strava/StravaAuthorised'
+import StravaRedirect from '@/components/strava/StravaRedirect'
 import Profile from '@/components/profile/Profile'
 
 Vue.use(Router)
@@ -17,7 +18,7 @@ let router = new Router({
       name: 'HelloWorld',
       component: HelloWorld,
       meta: {
-        guest: true
+        requiresAuth: true
       }
     },
     {
@@ -33,7 +34,7 @@ let router = new Router({
       name: 'StravaGetAuth',
       component: StravaGetAuth,
       meta: {
-        guest: true
+        requiresAuth: false
       }
     },
     {
@@ -41,7 +42,15 @@ let router = new Router({
       name: 'StravaAuthorised',
       component: StravaAuthorised,
       meta: {
-        guest: true
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/strava/redirect',
+      name: 'StravaRedirect',
+      component: StravaRedirect,
+      meta: {
+        requiresAuth: false
       }
     },
     {
@@ -53,6 +62,20 @@ let router = new Router({
       }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    let stravaAuthenticationToken = localStorage.getItem('stravaAccessToken')
+    console.log(stravaAuthenticationToken)
+    if (!stravaAuthenticationToken) {
+      next({ name: 'StravaRedirect', replace: true })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

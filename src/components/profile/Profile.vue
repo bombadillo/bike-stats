@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      athlete: 'getAthlete'
+      athlete: 'athlete'
     })
   },
   methods: {

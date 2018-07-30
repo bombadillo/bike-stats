@@ -32,37 +32,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import athleteStatsRetriever from '../../services/strava/athleteStatsRetriever'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'RecentStats',
   data() {
     return {
-      error: false,
-      athleteStats: undefined
+      error: false
     }
   },
   computed: {
-    ...mapGetters({
-      athlete: 'getAthlete'
-    })
+    ...mapGetters(['athlete', 'athleteStats'])
+  },
+  methods: {
+    ...mapActions(['getAthleteStats'])
   },
   created: function() {
-    if (!this.athlete) {
-      return
-    }
-
-    athleteStatsRetriever
-      .retrieveById(this.athlete.id)
-      .then(stats => {
-        this.athleteStats = stats
-        console.log(stats)
-        this.$store.dispatch('setAthleteStats', this)
-      })
-      .catch(error => {
-        this.error = true
-      })
+    this.getAthleteStats(this.athlete.id)
   }
 }
 </script>

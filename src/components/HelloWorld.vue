@@ -1,6 +1,5 @@
 <template>
   <div>
-    <StravaRedirect v-if="!athlete" />
     <Dashboard v-if="athlete" />
   </div>
 </template>
@@ -17,7 +16,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      athlete: 'getAthlete'
+      athlete: 'athlete'
     })
   }
 }
