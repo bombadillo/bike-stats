@@ -12,10 +12,12 @@ import Card from './components/elements/Card'
 import StravaRedirect from './components/strava/StravaRedirect'
 import Dashboard from './components/dashboard/Dashboard'
 import RecentStats from './components/stats/RecentStats'
+import VueContentPlaceholders from 'vue-content-placeholders'
 
 import store from './store'
 
 Vue.config.productionTip = false
+Vue.use(VueContentPlaceholders)
 
 Vue.component('Header', Header)
 Vue.component('Hamburger', Hamburger)

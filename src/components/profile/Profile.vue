@@ -4,9 +4,11 @@
       <h1>My Profile</h1>
     </div>
     <Card>
-      <p v-if="!athlete" class="text-green-dark px-6 py-4 text-center">
-        <i class="fab fa-strava"></i> {{msg}}
-      </p>
+      <content-placeholders :rounded="true" :animated="true" :centered="true" v-if="!athlete" class="mt-4">
+        <content-placeholders-img />
+        <content-placeholders-heading />
+        <content-placeholders-text />
+      </content-placeholders>
 
       <div v-if="athlete" class="px-6 pt-4 pb-6 text-center">
         <img v-if="athlete.profile" class="w-20 h-20 rounded-full" v-bind:src="athlete.profile" alt="Avatar">
