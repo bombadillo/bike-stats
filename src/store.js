@@ -13,7 +13,8 @@ var getters = {
   stravaAuthorised: state => state.stravaAuthorised,
   gettingStravaAccessToken: state => state.gettingStravaAccessToken,
   stravaError: state => state.stravaError,
-  stravaAuthenticationRequired: state => state.stravaAuthenticationRequired
+  stravaAuthenticationRequired: state => state.stravaAuthenticationRequired,
+  bike: state => state.bike
 }
 
 var mutations = {
@@ -34,6 +35,9 @@ var mutations = {
   },
   SET_STRAVA_AUTHENTICATION_REQUIRED: (state, required) => {
     state.stravaAuthenticationRequired = required
+  },
+  SET_BIKE: (state, bike) => {
+    state.bike = bike
   }
 }
 
@@ -78,6 +82,14 @@ var actions = {
         context.commit('SET_ATHLETE', athlete)
       })
       .catch(error => {})
+  },
+  getBike: context => {
+    bikeRetriever
+      .retrieve()
+      .then(bike => {
+        context.commit('SET_BIKE', bike)
+      })
+      .catch(error => {})
   }
 }
 
@@ -87,7 +99,8 @@ export default new Vuex.Store({
     stravaAuthorised: undefined,
     athleteStats: undefined,
     gettingStravaAccessToken: undefined,
-    stravaError: undefined
+    stravaError: undefined,
+    bike: undefined
   },
   getters: getters,
   mutations: mutations,

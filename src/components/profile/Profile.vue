@@ -52,9 +52,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      athlete: 'athlete'
-    })
+    ...mapGetters(['athlete'])
   },
   methods: {
     ...mapActions(['getAthlete']),

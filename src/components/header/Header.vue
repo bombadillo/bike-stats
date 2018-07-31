@@ -16,6 +16,7 @@
       <div class="text-sm lg:flex-grow">
         <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Home</router-link>
         <router-link to="/profile" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">My Profile</router-link>
+        <router-link to="/bikes" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">My Bikes</router-link>
         <router-link to="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Logout</router-link>
       </div>
     </div>

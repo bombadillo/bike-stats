@@ -7,6 +7,7 @@ import StravaAuthorised from '@/components/strava/StravaAuthorised'
 import StravaRedirect from '@/components/strava/StravaRedirect'
 import Profile from '@/components/profile/Profile'
 import Logout from '@/components/Logout'
+import Bikes from '@/components/bikes/Bikes'
 
 Vue.use(Router)
 
@@ -66,6 +67,14 @@ let router = new Router({
       path: '/logout',
       name: 'Logout',
       component: Logout,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/bikes',
+      name: 'Bikes',
+      component: Bikes,
       meta: {
         requiresAuth: true
       }
