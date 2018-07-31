@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import dateFormatter from '../../services/date/dateFormatter'
 
 export default {
@@ -57,9 +57,13 @@ export default {
     })
   },
   methods: {
+    ...mapActions(['getAthlete']),
     formatDate: function(date) {
       return dateFormatter.format(date)
     }
+  },
+  created: function() {
+    this.getAthlete()
   }
 }
 </script>

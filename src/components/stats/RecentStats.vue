@@ -10,24 +10,32 @@
         <p>Failed getting Recent stats</p>
       </div>
 
-      <div v-if="athleteStats" class="mt-4">
-        <ul class="list-reset">
-          <li>
-            <strong>Rides</strong> {{athleteStats.recent_ride_totals.count}}
-          </li>
-          <li class="mt-2">
-            <strong>Achievements</strong> {{athleteStats.recent_ride_totals.achievement_count}}
-          </li>
-          <li class="mt-2">
-            <strong>Distance</strong> {{athleteStats.recent_ride_totals.distance}}
-          </li>
-          <li class="mt-2">
-            <strong>Elevation</strong> {{athleteStats.recent_ride_totals.elevation_gain}}
-          </li>
-          <li class="mt-2">
-            <strong>Moving time</strong> {{athleteStats.recent_ride_totals.moving_time}}
-          </li>
-        </ul>
+      <div v-if="athleteStats" class="mt-6">
+        <div class="flex mb-4">
+          <div class="w-1/3 h-12">
+            <strong>{{athleteStats.recent_ride_totals.count}}</strong>
+            <br /> Rides
+          </div>
+          <div class="w-1/3 h-12">
+            <strong>{{convertToMiles(athleteStats.recent_ride_totals.distance)}}</strong>
+            <br /> Distance
+          </div>
+          <div class="w-1/3 h-12">
+            <strong>{{convertToFeet(athleteStats.recent_ride_totals.elevation_gain)}}</strong>
+            <br /> Elevation
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="w-1/2 h-12">
+            <strong>{{athleteStats.recent_ride_totals.achievement_count}}</strong>
+            <br /> Achievements
+          </div>
+          <div class="w-1/2 h-12">
+            <strong>{{convertToHours(athleteStats.recent_ride_totals.moving_time)}}</strong>
+            <br /> Moving time
+          </div>
+        </div>
       </div>
 
       <content-placeholders :rounded="true" :animated="true" :centered="true" v-if="!athleteStats" class="mt-4">
@@ -40,6 +48,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import convertor from '../../services/conversion/index'
 
 export default {
   name: 'RecentStats',
@@ -52,7 +61,10 @@ export default {
     ...mapGetters(['athlete', 'athleteStats'])
   },
   methods: {
-    ...mapActions(['getAthleteStats'])
+    ...mapActions(['getAthleteStats']),
+    convertToFeet: feet => convertor.metreToFeet(feet),
+    convertToMiles: feet => convertor.metreToMile(feet),
+    convertToHours: seconds => convertor.secondToHour(seconds)
   },
   created: function() {
     this.getAthleteStats(this.athlete.id)

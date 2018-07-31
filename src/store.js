@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import stravaAccessTokenRetriever from './services/strava/stravaAccessTokenRetriever'
 import athleteStatsRetriever from './services/strava/athleteStatsRetriever'
+import athleteRetriever from './services/strava/athleteRetriever'
 
 Vue.use(Vuex)
 
@@ -67,6 +68,14 @@ var actions = {
       .retrieveById(athleteId)
       .then(stats => {
         context.commit('SET_ATHLETE_STATS', stats)
+      })
+      .catch(error => {})
+  },
+  getAthlete: context => {
+    athleteRetriever
+      .retrieve()
+      .then(athlete => {
+        context.commit('SET_ATHLETE', athlete)
       })
       .catch(error => {})
   }

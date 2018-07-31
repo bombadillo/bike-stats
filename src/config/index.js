@@ -7,7 +7,7 @@ if (isProd) {
     env: 'prod',
     stravaApi: {
       stravaAuthUrl: 'https://www.strava.com/oauth/authorize',
-      stravaAthleteUrl: 'https://www.strava.com/api/v3/athletes',
+      stravaAthleteUrl: 'https://www.strava.com/api/v3/',
       stravaAccessTokenUrl: 'https://www.strava.com/oauth/token',
       clientId: 27343,
       clientSecret: '57230d9e96cf5eb1f1cf744b6947919ad51a2e52',
@@ -20,7 +20,7 @@ if (isProd) {
     env: 'dev',
     stravaApi: {
       stravaAuthUrl: 'https://www.strava.com/oauth/authorize',
-      stravaAthleteUrl: 'https://www.strava.com/api/v3/athletes',
+      stravaAthleteUrl: 'https://www.strava.com/api/v3/',
       stravaAccessTokenUrl: 'https://www.strava.com/oauth/token',
       clientId: 15277,
       clientSecret: '6d54f51ce015217c148b0bb91cc0c494760a1036',
