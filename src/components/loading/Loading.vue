@@ -228,4 +228,10 @@ export default {
 #text.text--hover .nuotron {
   margin-right: -18px;
 }
+
+@media only screen and (max-width: 600px) {
+  #text {
+    display: none;
+  }
+}
 </style>
