@@ -14,7 +14,8 @@ var getters = {
   gettingStravaAccessToken: state => state.gettingStravaAccessToken,
   stravaError: state => state.stravaError,
   stravaAuthenticationRequired: state => state.stravaAuthenticationRequired,
-  bike: state => state.bike
+  bike: state => state.bike,
+  initialLoadComplete: state => state.initialLoadComplete
 }
 
 var mutations = {
@@ -38,6 +39,9 @@ var mutations = {
   },
   SET_BIKE: (state, bike) => {
     state.bike = bike
+  },
+  SET_INITIAL_LOAD_COMPLETE: state => {
+    state.initialLoadComplete = true
   }
 }
 
@@ -46,12 +50,12 @@ var actions = {
     let stravaAuthCode = authCode || localStorage.getItem('stravaAuthCode')
 
     if (!stravaAuthCode) {
+      context.commit('SET_INITIAL_LOAD_COMPLETE')
       context.commit('SET_STRAVA_AUTHENTICATION_REQUIRED', true)
       return
     }
 
     context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', true)
-
     return stravaAccessTokenRetriever
       .retrieve(stravaAuthCode)
       .then(response => {
@@ -60,11 +64,13 @@ var actions = {
           context.commit('SET_ATHLETE', response.athlete)
           context.commit('SET_STRAVA_AUTHORISED', true)
           context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
+          context.commit('SET_INITIAL_LOAD_COMPLETE')
         }
       })
       .catch(error => {
         context.commit('SET_STRAVA_ERROR', true)
         context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
+        context.commit('SET_INITIAL_LOAD_COMPLETE')
       })
   },
   getAthleteStats: (context, athleteId) => {
@@ -100,7 +106,8 @@ export default new Vuex.Store({
     athleteStats: undefined,
     gettingStravaAccessToken: undefined,
     stravaError: undefined,
-    bike: undefined
+    bike: undefined,
+    initialLoadComplete: undefined
   },
   getters: getters,
   mutations: mutations,

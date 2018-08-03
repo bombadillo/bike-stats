@@ -20,7 +20,7 @@
             <strong>{{convertToMiles(bike.distance)}} miles</strong>
           </div>
 
-          <div v-if="bike.primary" class="primary bg-blue text-white text-xs tracking-wide px-2 py-1">primary</div>
+          <div v-if="bike.primary" class="primary bg-indigo-darker text-white text-xs tracking-wide px-2 py-1">primary</div>
         </div>
       </Card>
     </div>
@@ -53,7 +53,7 @@ export default {
 }
 .primary {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 10px;
 }
 </style>

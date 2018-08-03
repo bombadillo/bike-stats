@@ -1,14 +1,17 @@
 <template>
-  <div id="app">
-    <Header></Header>
+  <div>
+    <div v-if="initialLoadComplete" id="app">
+      <Header></Header>
 
-    <Card v-if="stravaError">
-      <p class="text-red-dark px-6 py-4">
-        <i class="fab fa-strava"></i> {{stravaAuthMsg}}
-      </p>
-    </Card>
+      <Card v-if="stravaError">
+        <p class="text-red-dark px-6 py-4">
+          <i class="fab fa-strava"></i> {{stravaAuthMsg}}
+        </p>
+      </Card>
+      <router-view />
+    </div>
 
-    <router-view />
+    <Loading :display="!initialLoadComplete" />
   </div>
 </template>
 
@@ -27,7 +30,8 @@ export default {
     'stravaAuthorised',
     'gettingStravaAccessToken',
     'stravaError',
-    'stravaAuthenticationRequired'
+    'stravaAuthenticationRequired',
+    'initialLoadComplete'
   ]),
   methods: {
     ...mapActions(['getStravaAuthCode'])

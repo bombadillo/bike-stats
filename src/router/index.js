@@ -85,6 +85,7 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     let stravaAuthenticationToken = localStorage.getItem('stravaAccessToken')
+    console.log(stravaAuthenticationToken)
     if (!stravaAuthenticationToken) {
       next({ name: 'StravaRedirect', replace: true })
     } else {
