@@ -16,6 +16,7 @@ import VueContentPlaceholders from 'vue-content-placeholders'
 import Logout from './components/Logout'
 import Bikes from './components/bikes/Bikes'
 import Loading from './components/loading/Loading'
+import LatestActivity from './components/latestActivity/LatestActivity'
 
 import store from './store'
 
@@ -34,6 +35,7 @@ Vue.component('RecentStats', RecentStats)
 Vue.component('Logout', Logout)
 Vue.component('Bikes', Bikes)
 Vue.component('Loading', Loading)
+Vue.component('LatestActivity', LatestActivity)
 
 new Vue({
   el: '#app',

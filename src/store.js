@@ -4,6 +4,7 @@ import Vue from 'vue'
 import stravaAccessTokenRetriever from './services/strava/stravaAccessTokenRetriever'
 import athleteStatsRetriever from './services/strava/athleteStatsRetriever'
 import athleteRetriever from './services/strava/athleteRetriever'
+import activityRetriever from './services/strava/activityRetriever'
 
 Vue.use(Vuex)
 
@@ -15,7 +16,8 @@ var getters = {
   stravaError: state => state.stravaError,
   stravaAuthenticationRequired: state => state.stravaAuthenticationRequired,
   bike: state => state.bike,
-  initialLoadComplete: state => state.initialLoadComplete
+  initialLoadComplete: state => state.initialLoadComplete,
+  latestActivity: state => state.latestActivity
 }
 
 var mutations = {
@@ -42,6 +44,9 @@ var mutations = {
   },
   SET_INITIAL_LOAD_COMPLETE: state => {
     state.initialLoadComplete = true
+  },
+  SET_LATEST_ACTIVITY: (state, acitvity) => {
+    state.latestActivity = acitvity
   }
 }
 
@@ -96,6 +101,14 @@ var actions = {
         context.commit('SET_BIKE', bike)
       })
       .catch(error => {})
+  },
+  getLatestActivity: context => {
+    activityRetriever
+      .retrieveLatest(1)
+      .then(activities => {
+        context.commit('SET_LATEST_ACTIVITY', activities[0])
+      })
+      .catch(error => {})
   }
 }
 
@@ -107,9 +120,16 @@ export default new Vuex.Store({
     gettingStravaAccessToken: undefined,
     stravaError: undefined,
     bike: undefined,
-    initialLoadComplete: undefined
+    initialLoadComplete: undefined,
+    latestActivity: undefined
   },
   getters: getters,
   mutations: mutations,
   actions: actions
 })
+
+function compare(a, b) {
+  if (a.distance < b.distance) return -1
+  if (a.distance > b.distance) return 1
+  return 0
+}
