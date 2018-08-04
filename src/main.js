@@ -17,6 +17,7 @@ import Logout from './components/Logout'
 import Bikes from './components/bikes/Bikes'
 import Loading from './components/loading/Loading'
 import LatestActivity from './components/latestActivity/LatestActivity'
+import Map from './components/map/Map'
 
 import store from './store'
 
@@ -36,6 +37,7 @@ Vue.component('Logout', Logout)
 Vue.component('Bikes', Bikes)
 Vue.component('Loading', Loading)
 Vue.component('LatestActivity', LatestActivity)
+Vue.component('Map', Map)
 
 new Vue({
   el: '#app',

@@ -4,6 +4,8 @@
       <i class="fas fa-bicycle"></i> Latest Activity </h2>
     <h3 class="mt-4">{{latestActivity.name}}</h3>
 
+    <Map v-if="latestActivity" :activity="latestActivity" />
+
     <div class="flex mb-4 mt-4">
       <div class="w-1/2 h-12">
         <strong>{{convertToMiles(latestActivity.distance)}}</strong>
@@ -45,7 +47,6 @@ export default {
   },
   created: function() {
     this.getLatestActivity()
-    console.log(this.latestActivity)
   }
 }
 </script>
