@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="my-4 text-center">Dashboard</h1>
+    <!-- TODO make title component-->
+    <h1 class="my-4 text-center text-grey-darker">Dashboard</h1>
+    <LatestActivity />
     <RecentStats />
   </div>
 </template>

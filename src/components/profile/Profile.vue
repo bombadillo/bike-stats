@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex my-4 justify-center">
+    <div class="flex my-4 justify-center text-grey-darker">
       <h1>My Profile</h1>
     </div>
     <Card>

@@ -21,7 +21,7 @@
         <br /> Kudos
       </div>
       <div class="w-1/2 h-12">
-        <strong>{{convertToHours(latestActivity.moving_time)}}</strong>
+        <strong>{{convertToTime(latestActivity.moving_time)}}</strong>
         <br /> Moving time
       </div>
     </div>
@@ -41,7 +41,7 @@ export default {
     ...mapActions(['getLatestActivity']),
     convertToFeet: feet => convertor.metreToFeet(feet),
     convertToMiles: feet => convertor.metreToMile(feet),
-    convertToHours: seconds => convertor.secondToHour(seconds, true)
+    convertToTime: seconds => convertor.secondToTime(seconds, true)
   },
   created: function() {
     this.getLatestActivity()

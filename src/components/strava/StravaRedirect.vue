@@ -2,7 +2,7 @@
   <Card class="text-center">
     <div v-if="!redirecting">
       <div class="text-xl mb-2 px-2 pt-4">
-        <button v-on:click="redirect" to="strava/getauth" class="bg-blue text-white py-2 px-4 border border-grey-light rounded shadow lg:w-1/2 no-underline">
+        <button v-on:click="redirect" to="strava/getauth" class="bg-indigo-darker text-white py-2 px-4 border border-grey-light rounded shadow lg:w-1/2 no-underline">
           <i class="fab fa-strava"></i>
           <small> Get my stats</small>
         </button>

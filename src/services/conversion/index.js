@@ -1,9 +1,9 @@
 import metreToFeetConvertor from './metreToFeetConvertor'
 import metreToMileConvertor from './metreToMileConvertor'
-import secondToHourConvertor from './secondToHourConvertor'
+import secondToTimeConvertor from './secondToTimeConvertor'
 
 export default {
   metreToFeet: metreToFeetConvertor.convert,
   metreToMile: metreToMileConvertor.convert,
-  secondToHour: secondToHourConvertor.convert
+  secondToTime: secondToTimeConvertor.convert
 }

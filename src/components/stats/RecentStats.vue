@@ -2,7 +2,7 @@
   <div>
     <Card class="text-center">
       <h2>
-        <i class="far fa-clock"></i> Recent Stats </h2>
+        <i class="fas fa-chart-line"></i> Recent Stats </h2>
       <div v-if="error" class="bg-red-lightest border-l-4 border-red text-red-dark p-4 mt-4" role="alert">
         <p class="font-bold">Oops
           <i class="far fa-sad-cry"></i>
@@ -32,7 +32,7 @@
             <br /> Achievements
           </div>
           <div class="w-1/2 h-12">
-            <strong>{{convertToHours(athleteStats.recent_ride_totals.moving_time)}}</strong>
+            <strong>{{convertToTime(athleteStats.recent_ride_totals.moving_time)}}</strong>
             <br /> Moving time
           </div>
         </div>
@@ -64,7 +64,7 @@ export default {
     ...mapActions(['getAthleteStats']),
     convertToFeet: feet => convertor.metreToFeet(feet),
     convertToMiles: feet => convertor.metreToMile(feet),
-    convertToHours: seconds => convertor.secondToHour(seconds)
+    convertToTime: seconds => convertor.secondToTime(seconds)
   },
   created: function() {
     this.getAthleteStats(this.athlete.id)

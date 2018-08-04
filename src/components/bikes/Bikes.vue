@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex my-4 justify-center">
+    <div class="flex my-4 justify-center text-grey-darker">
       <h1>My Bikes</h1>
     </div>
 
@@ -15,9 +15,9 @@
     <div v-if="athlete && athlete.bikes">
       <Card v-for="bike in athlete.bikes" :key="bike.id" class="bike">
         <div class="px-6 pt-4 pb-6 text-center">
-          {{bike.name}}
-          <div class="text-grey mt-2">
-            <strong>{{convertToMiles(bike.distance)}} miles</strong>
+          <strong>{{bike.name}}</strong>
+          <div class="text-grey-darkest mt-2">
+            {{convertToMiles(bike.distance)}} miles
           </div>
 
           <div v-if="bike.primary" class="primary bg-indigo-darker text-white text-xs tracking-wide px-2 py-1">primary</div>

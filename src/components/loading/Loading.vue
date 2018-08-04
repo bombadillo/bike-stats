@@ -40,6 +40,11 @@ export default {
         this.hideLoader = true
       }, 500)
     }
+  },
+  created: function() {
+    if (!this.display) {
+      this.hideLoader = true
+    }
   }
 }
 </script>
