@@ -3,6 +3,10 @@
 </template>
 
 <script>
+import L from 'leaflet'
+require('polyline-encoded')
+import 'leaflet/dist/leaflet.css'
+
 export default {
   name: 'Map',
   props: ['activity'],
