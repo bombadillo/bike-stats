@@ -10,9 +10,9 @@
     </div>
 
     <Hamburger @clicked="toggleMobileDropdown"></Hamburger>
-    <HeaderMobileMenu v-if="showMobileDropdown"></HeaderMobileMenu>
+    <HeaderMobileMenu v-if="showMobileDropdown && stravaAuthorised"></HeaderMobileMenu>
 
-    <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right">
+    <div v-if="stravaAuthorised" class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right">
       <div class="text-sm lg:flex-grow">
         <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Home</router-link>
         <router-link to="/profile" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">My Profile</router-link>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Header',
   data() {
@@ -31,6 +33,9 @@ export default {
       msg: 'header',
       showMobileDropdown: false
     }
+  },
+  computed: {
+    ...mapGetters(['stravaAuthorised'])
   },
   methods: {
     toggleMobileDropdown: function(hide) {
