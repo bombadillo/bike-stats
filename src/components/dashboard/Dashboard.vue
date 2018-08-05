@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- TODO make title component-->
-    <h1 class="my-4 text-center text-grey-darker">Dashboard</h1>
+    <Title :title="'Dashboard'" />
     <LatestActivity />
     <Stats />
   </div>

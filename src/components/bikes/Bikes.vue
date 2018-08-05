@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="flex my-4 justify-center text-grey-darker">
-      <h1>My Bikes</h1>
-    </div>
+    <Title :title="'My Bikes'" />
 
     <Card v-if="!athlete || !athlete.bikes">
       <content-placeholders :rounded="true" :animated="true" :centered="true" class="mt-4">

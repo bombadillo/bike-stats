@@ -19,6 +19,7 @@ import Loading from './components/loading/Loading'
 import LatestActivity from './components/latestActivity/LatestActivity'
 import Map from './components/map/Map'
 import StatItem from './components/stats/StatItem'
+import Title from './components/title/Title'
 
 import store from './store'
 
@@ -40,6 +41,7 @@ Vue.component('Loading', Loading)
 Vue.component('LatestActivity', LatestActivity)
 Vue.component('Map', Map)
 Vue.component('StatItem', StatItem)
+Vue.component('Title', Title)
 
 new Vue({
   el: '#app',
