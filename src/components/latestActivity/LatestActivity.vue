@@ -1,28 +1,21 @@
 <template>
   <Card v-if="latestActivity" class="text-center">
-    <h2>
+    <h2 class="no-margin border-solid border-b border-solid border-grey-lighter pb-3">
       <i class="fas fa-bicycle"></i> Latest Activity </h2>
     <h3 class="mt-4">{{latestActivity.name}}</h3>
 
     <Map v-if="latestActivity" :activity="latestActivity" />
 
-    <div class="flex mb-4 mt-4">
-      <div class="w-1/2 h-12">
+    <div class="flex mt-4">
+      <div class="w-1/3 h-12 border-solid border-r border-solid border-grey-lighter">
         <strong>{{convertToMiles(latestActivity.distance)}}</strong>
         <br /> Distance
       </div>
-      <div class="w-1/2 h-12">
+      <div class="w-1/3 h-12">
         <strong>{{convertToFeet(latestActivity.total_elevation_gain)}}</strong>
         <br /> Elevation
       </div>
-    </div>
-
-    <div class="flex">
-      <div class="w-1/2 h-12">
-        <strong>{{latestActivity.kudos_count}}</strong>
-        <br /> Kudos
-      </div>
-      <div class="w-1/2 h-12">
+      <div class="w-1/3 h-12  border-solid border-l border-solid border-grey-lighter">
         <strong>{{convertToTime(latestActivity.moving_time)}}</strong>
         <br /> Moving time
       </div>
