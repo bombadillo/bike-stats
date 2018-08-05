@@ -6,18 +6,19 @@
 
     <Map v-if="latestActivity" :activity="latestActivity" />
 
-    <div class="flex mt-4">
+    <div class="flex pt-6">
       <div class="w-1/3 h-12 border-solid border-r border-solid border-grey-lighter">
-        <strong>{{convertToMiles(latestActivity.distance)}}</strong>
-        <br /> Distance
+        <div class="uppercase text-grey-dark font-bold text-xs mb-1">Distance</div>
+        <div class="font-bold">{{convertToMiles(latestActivity.distance)}}</div>
       </div>
       <div class="w-1/3 h-12">
-        <strong>{{convertToFeet(latestActivity.total_elevation_gain)}}</strong>
-        <br /> Elevation
+        <div class="uppercase text-grey-dark font-bold text-xs mb-1">Elevation</div>
+        <div class="font-bold">{{convertToFeet(latestActivity.total_elevation_gain)}}</div>
+
       </div>
-      <div class="w-1/3 h-12  border-solid border-l border-solid border-grey-lighter">
-        <strong>{{convertToTime(latestActivity.moving_time)}}</strong>
-        <br /> Moving time
+      <div class="w-1/3 h-12 border-solid border-l border-solid border-grey-lighter">
+        <div class="uppercase text-grey-dark font-bold text-xs mb-1">Moving time</div>
+        <div class="font-bold">{{convertToTime(latestActivity.moving_time)}} </div>
       </div>
     </div>
   </Card>
