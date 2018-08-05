@@ -1,7 +1,7 @@
 import config from '../../config/index'
 import axios from 'axios'
 
-var retrieve = function(bikeId) {
+var retrieveById = function(bikeId) {
   return new Promise((resolve, reject) => {
     var url = `${config.stravaApi.stravaAthleteUrl}/gear/${bikeId}`
     var accessToken = localStorage.getItem('stravaAccessToken')
@@ -30,5 +30,5 @@ var retrieve = function(bikeId) {
 }
 
 export default {
-  retrieve: retrieve
+  retrieveById: retrieveById
 }

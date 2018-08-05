@@ -5,6 +5,7 @@ import stravaAccessTokenRetriever from './services/strava/stravaAccessTokenRetri
 import athleteStatsRetriever from './services/strava/athleteStatsRetriever'
 import athleteRetriever from './services/strava/athleteRetriever'
 import activityRetriever from './services/strava/activityRetriever'
+import bikeRetriever from './services/strava/bikeRetriever'
 
 Vue.use(Vuex)
 
@@ -94,9 +95,9 @@ var actions = {
       })
       .catch(error => {})
   },
-  getBike: context => {
+  getBike: (context, bikeId) => {
     bikeRetriever
-      .retrieve()
+      .retrieveById(bikeId)
       .then(bike => {
         context.commit('SET_BIKE', bike)
       })
