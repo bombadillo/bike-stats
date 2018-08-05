@@ -1,5 +1,5 @@
 <template>
-  <div v-if="activity" id="map" class="map mt-3"></div>
+  <div v-if="activity" id="map" class="map mt-3 no-margin border-solid border-b border-t border-solid border-grey-light"></div>
 </template>
 
 <script>
@@ -50,8 +50,6 @@ export default {
 <style scoped>
 .map {
   height: 200px;
-  margin-left: -16px;
-  margin-right: -16px;
-  box-shadow: 0 4px 17px -6px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0 4px 17px -6px rgba(0, 0, 0, 0.4); */
 }
 </style>

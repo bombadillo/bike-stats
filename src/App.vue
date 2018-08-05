@@ -47,4 +47,9 @@ export default {
 #app {
   font-family: 'Open Sans', sans-serif;
 }
+
+.no-margin {
+  margin-left: -16px;
+  margin-right: -16px;
+}
 </style>

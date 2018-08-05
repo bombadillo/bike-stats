@@ -1,7 +1,7 @@
 <template>
   <div>
     <Card class="text-center">
-      <h2>
+      <h2 class="no-margin border-solid border-b border-solid border-grey-lighter pb-3">
         <i class="fas fa-chart-line"></i> Recent Stats </h2>
       <div v-if="error" class="bg-red-lightest border-l-4 border-red text-red-dark p-4 mt-4" role="alert">
         <p class="font-bold">Oops
