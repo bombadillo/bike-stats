@@ -11,7 +11,7 @@ import Profile from './components/profile/Profile'
 import Card from './components/elements/Card'
 import StravaRedirect from './components/strava/StravaRedirect'
 import Dashboard from './components/dashboard/Dashboard'
-import RecentStats from './components/stats/RecentStats'
+import Stats from './components/stats/Stats'
 import VueContentPlaceholders from 'vue-content-placeholders'
 import Logout from './components/Logout'
 import Bikes from './components/bikes/Bikes'
@@ -33,7 +33,7 @@ Vue.component('Profile', Profile)
 Vue.component('Card', Card)
 Vue.component('StravaRedirect', StravaRedirect)
 Vue.component('Dashboard', Dashboard)
-Vue.component('RecentStats', RecentStats)
+Vue.component('Stats', Stats)
 Vue.component('Logout', Logout)
 Vue.component('Bikes', Bikes)
 Vue.component('Loading', Loading)

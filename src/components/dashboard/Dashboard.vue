@@ -3,7 +3,7 @@
     <!-- TODO make title component-->
     <h1 class="my-4 text-center text-grey-darker">Dashboard</h1>
     <LatestActivity />
-    <RecentStats />
+    <Stats />
   </div>
 </template>
 
