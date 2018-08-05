@@ -3,7 +3,7 @@
     <h2 class="no-margin border-solid border-b border-solid border-grey-lighter pb-3">
       <i class="fas fa-stopwatch"></i> Latest Activity
     </h2>
-    <div class="flex">
+    <div class="flex text-sm">
       <div class="w-1/2">
         <h3 class="mt-4 text-left">{{latestActivity.name}}</h3>
       </div>

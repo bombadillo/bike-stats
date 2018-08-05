@@ -44,6 +44,10 @@ export default {
 </script>
 
 <style>
+body {
+  background-image: url(assets/topography.png);
+  background-attachment: fixed;
+}
 #app {
   font-family: 'Open Sans', sans-serif;
 }
