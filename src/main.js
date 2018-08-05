@@ -18,6 +18,7 @@ import Bikes from './components/bikes/Bikes'
 import Loading from './components/loading/Loading'
 import LatestActivity from './components/latestActivity/LatestActivity'
 import Map from './components/map/Map'
+import StatItem from './components/stats/StatItem'
 
 import store from './store'
 
@@ -38,6 +39,7 @@ Vue.component('Bikes', Bikes)
 Vue.component('Loading', Loading)
 Vue.component('LatestActivity', LatestActivity)
 Vue.component('Map', Map)
+Vue.component('StatItem', StatItem)
 
 new Vue({
   el: '#app',

@@ -8,17 +8,13 @@
 
     <div class="flex pt-6">
       <div class="w-1/3 h-12 border-solid border-r border-solid border-grey-lighter">
-        <div class="uppercase text-grey-dark font-bold text-xs mb-1">Distance</div>
-        <div class="font-bold">{{convertToMiles(latestActivity.distance)}}</div>
+        <StatItem :statName="'Distance'" :statValue="convertToMiles(latestActivity.distance)" />
       </div>
       <div class="w-1/3 h-12">
-        <div class="uppercase text-grey-dark font-bold text-xs mb-1">Elevation</div>
-        <div class="font-bold">{{convertToFeet(latestActivity.total_elevation_gain)}}</div>
-
+        <StatItem :statName="'Elevation'" :statValue="convertToFeet(latestActivity.total_elevation_gain)" />
       </div>
       <div class="w-1/3 h-12 border-solid border-l border-solid border-grey-lighter">
-        <div class="uppercase text-grey-dark font-bold text-xs mb-1">Moving time</div>
-        <div class="font-bold">{{convertToTime(latestActivity.moving_time)}} </div>
+        <StatItem :statName="'Moving time'" :statValue="convertToTime(latestActivity.moving_time)" />
       </div>
     </div>
   </Card>
