@@ -3,11 +3,11 @@
     <h2 class="no-margin border-solid border-b border-solid border-grey-lighter pb-3">
       <i class="fas fa-stopwatch"></i> Latest Activity
     </h2>
-    <div class="flex text-sm">
-      <div class="w-1/2">
+    <div class="flex text-xs">
+      <div class="w-2/5">
         <h3 class="mt-4 text-left">{{latestActivity.name}}</h3>
       </div>
-      <div v-if="bike" class="w-1/2">
+      <div v-if="bike" class="w-3/5">
         <h3 class="mt-4 text-right">
           <i class="fas fa-bicycle"></i> {{bike.name}}</h3>
       </div>
