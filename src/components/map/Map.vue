@@ -21,9 +21,9 @@ export default {
   methods: {
     initMap() {
       this.map = L.map('map').setView([38.63, -90.23], 12)
-      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(
-        this.map
-      )
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        detectRetina: true
+      }).addTo(this.map)
 
       var greenLine = L.Polyline.fromEncoded(
         this.activity.map.summary_polyline,
