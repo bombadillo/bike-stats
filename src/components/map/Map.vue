@@ -21,7 +21,7 @@ export default {
   methods: {
     initMap() {
       this.map = L.map('map').setView([38.63, -90.23], 12)
-      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         detectRetina: true
       }).addTo(this.map)
 
@@ -50,6 +50,5 @@ export default {
 <style scoped>
 .map {
   height: 200px;
-  /* box-shadow: 0 4px 17px -6px rgba(0, 0, 0, 0.4); */
 }
 </style>
