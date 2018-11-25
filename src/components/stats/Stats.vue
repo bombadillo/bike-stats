@@ -85,13 +85,9 @@ export default {
     ...mapGetters(['athlete', 'athleteStats'])
   },
   methods: {
-    ...mapActions(['getAthleteStats']),
     convertToFeet: feet => convertor.metreToFeet(feet),
     convertToMiles: feet => convertor.metreToMile(feet),
     convertToTime: seconds => convertor.secondToTime(seconds)
-  },
-  created: function() {
-    this.getAthleteStats(this.athlete.id)
   }
 }
 </script>

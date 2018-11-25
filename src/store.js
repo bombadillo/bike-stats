@@ -6,6 +6,7 @@ import athleteStatsRetriever from './services/strava/athleteStatsRetriever'
 import athleteRetriever from './services/strava/athleteRetriever'
 import activityRetriever from './services/strava/activityRetriever'
 import bikeRetriever from './services/strava/bikeRetriever'
+import userCreator from './services/user/userCreator'
 
 Vue.use(Vuex)
 
@@ -52,7 +53,7 @@ var mutations = {
 }
 
 var actions = {
-  getStravaAuthCode: (context, authCode) => {
+  getStravaAuthCode: async (context, authCode) => {
     let stravaAuthCode = authCode || localStorage.getItem('stravaAuthCode')
 
     if (!stravaAuthCode) {
@@ -62,22 +63,21 @@ var actions = {
     }
 
     context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', true)
-    return stravaAccessTokenRetriever
-      .retrieve(stravaAuthCode)
-      .then(response => {
-        if (response.athlete) {
-          localStorage.setItem('stravaAccessToken', response.access_token)
-          context.commit('SET_ATHLETE', response.athlete)
-          context.commit('SET_STRAVA_AUTHORISED', true)
-          context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
-          context.commit('SET_INITIAL_LOAD_COMPLETE')
-        }
-      })
-      .catch(error => {
-        context.commit('SET_STRAVA_ERROR', true)
+    try {
+      const response = await stravaAccessTokenRetriever.retrieve(stravaAuthCode)
+
+      if (response.athlete) {
+        localStorage.setItem('stravaAccessToken', response.access_token)
+        context.commit('SET_ATHLETE', response.athlete)
+        context.commit('SET_STRAVA_AUTHORISED', true)
         context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
         context.commit('SET_INITIAL_LOAD_COMPLETE')
-      })
+      }
+    } catch (error) {
+      context.commit('SET_STRAVA_ERROR', true)
+      context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
+      context.commit('SET_INITIAL_LOAD_COMPLETE')
+    }
   },
   getAthleteStats: (context, athleteId) => {
     athleteStatsRetriever
@@ -91,6 +91,8 @@ var actions = {
     athleteRetriever
       .retrieve()
       .then(athlete => {
+        console.log(athlete)
+        userCreator.create(athlete)
         context.commit('SET_ATHLETE', athlete)
       })
       .catch(error => {})

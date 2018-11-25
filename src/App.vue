@@ -28,17 +28,19 @@ export default {
   },
   computed: mapGetters([
     'stravaAuthorised',
-    'gettingStravaAccessToken',
     'stravaError',
-    'stravaAuthenticationRequired',
-    'initialLoadComplete'
+    'initialLoadComplete',
+    'athlete'
   ]),
   methods: {
-    ...mapActions(['getStravaAuthCode'])
+    ...mapActions(['getStravaAuthCode', 'getAthlete'])
   },
 
-  created: function() {
-    this.getStravaAuthCode()
+  created: async function() {
+    await this.getStravaAuthCode()
+    if (this.stravaAuthorised) {
+      this.getAthlete()
+    }
   }
 }
 </script>
