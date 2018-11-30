@@ -7,6 +7,9 @@ import athleteRetriever from './services/strava/athleteRetriever'
 import activityRetriever from './services/strava/activityRetriever'
 import bikeRetriever from './services/strava/bikeRetriever'
 import userCreator from './services/user/userCreator'
+import bikeCheckRetriever from './services/bike/bikeCheckRetriever'
+import bikeCheckCreator from './services/bike/bikeCheckCreator'
+import bikeCheckUpdater from './services/bike/bikeCheckUpdater'
 
 Vue.use(Vuex)
 
@@ -18,6 +21,8 @@ var getters = {
   stravaError: state => state.stravaError,
   stravaAuthenticationRequired: state => state.stravaAuthenticationRequired,
   bike: state => state.bike,
+  bikeChecks: state => state.bikeChecks,
+  bikeCheckUpdated: state => state.bikeCheckUpdated,
   initialLoadComplete: state => state.initialLoadComplete,
   latestActivity: state => state.latestActivity
 }
@@ -43,6 +48,15 @@ var mutations = {
   },
   SET_BIKE: (state, bike) => {
     state.bike = bike
+  },
+  SET_BIKE_CHECKS: (state, bikeChecks) => {
+    state.bikeChecks = bikeChecks
+  },
+  SET_BIKE_CHECK_ADDED: (state, added) => {
+    state.bikeCheckAdded = added
+  },
+  SET_BIKE_CHECK_UPDATED: (state, updated) => {
+    state.bikeCheckUpdated = updated
   },
   SET_INITIAL_LOAD_COMPLETE: state => {
     state.initialLoadComplete = true
@@ -91,7 +105,6 @@ var actions = {
     athleteRetriever
       .retrieve()
       .then(athlete => {
-        console.log(athlete)
         userCreator.create(athlete)
         context.commit('SET_ATHLETE', athlete)
       })
@@ -105,6 +118,15 @@ var actions = {
       })
       .catch(error => {})
   },
+  getBikeChecks: (context, bikeId) => {
+    console.log('getting bike checks')
+    bikeCheckRetriever
+      .retrieveByBikeId(bikeId)
+      .then(bikeChecks => {
+        context.commit('SET_BIKE_CHECKS', bikeChecks)
+      })
+      .catch(error => {})
+  },
   getLatestActivity: context => {
     activityRetriever
       .retrieveLatest(1)
@@ -112,6 +134,28 @@ var actions = {
         context.commit('SET_LATEST_ACTIVITY', activities[0])
       })
       .catch(error => {})
+  },
+  addBikeCheck: (context, bikeCheck) => {
+    bikeCheckCreator
+      .create(bikeCheck)
+      .then(() => {
+        context.commit('SET_BIKE_CHECK_ADDED', true)
+      })
+      .catch(error => {
+        context.commit('SET_BIKE_CHECK_ADDED', false)
+      })
+  },
+  updateBikeCheck: (context, bikeCheckUpdate) => {
+    console.log('updating bike check')
+    bikeCheckUpdater
+      .update(bikeCheckUpdate)
+      .then(() => {
+        context.commit('SET_BIKE_CHECK_UPDATED', true)
+        context.dispatch('getBikeChecks', bikeCheckUpdate.bikeId)
+      })
+      .catch(error => {
+        context.commit('SET_BIKE_CHECK_UPDATED', false)
+      })
   }
 }
 
@@ -123,6 +167,9 @@ export default new Vuex.Store({
     gettingStravaAccessToken: undefined,
     stravaError: undefined,
     bike: undefined,
+    bikeChecks: undefined,
+    bikeCheckAdded: undefined,
+    bikeCheckUpdated: undefined,
     initialLoadComplete: undefined,
     latestActivity: undefined
   },

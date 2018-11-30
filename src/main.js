@@ -20,6 +20,11 @@ import LatestActivity from './components/latestActivity/LatestActivity'
 import Map from './components/map/Map'
 import StatItem from './components/stats/StatItem'
 import Title from './components/title/Title'
+import BikeCheck from './components/bike-check/BikeCheck'
+import BikeCheckLastChecked from './components/bike-check-last-checked/BikeCheckLastChecked'
+import BikeCheckAddButton from './components/bike-check-add-button/BikeCheckAddButton'
+import LoaderWithImage from './components/loader-with-image/LoaderWithImage'
+import LoaderWithoutImage from './components/loader-without-image/LoaderWithoutImage'
 
 import store from './store'
 
@@ -42,6 +47,11 @@ Vue.component('LatestActivity', LatestActivity)
 Vue.component('Map', Map)
 Vue.component('StatItem', StatItem)
 Vue.component('Title', Title)
+Vue.component('BikeCheck', BikeCheck)
+Vue.component('BikeCheckLastChecked', BikeCheckLastChecked)
+Vue.component('BikeCheckAddButton', BikeCheckAddButton)
+Vue.component('LoaderWithImage', LoaderWithImage)
+Vue.component('LoaderWithoutImage', LoaderWithoutImage)
 
 new Vue({
   el: '#app',

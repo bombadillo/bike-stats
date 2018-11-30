@@ -2,16 +2,18 @@
   <div>
     <Title :title="'My Bikes'" />
 
-    <Card v-if="!athlete || !athlete.bikes">
-      <content-placeholders :rounded="true" :animated="true" :centered="true" class="mt-4">
-        <content-placeholders-img />
-        <content-placeholders-heading />
-        <content-placeholders-text />
-      </content-placeholders>
-    </Card>
+    <LoaderWithImage v-if="!athlete || !athlete.bikes" />
 
-    <div v-if="athlete && athlete.bikes" v-for="bike in athlete.bikes" :key="bike.id">
-      <router-link :to="'/bike/' + bike.id" tag="div" class="bike">
+    <div
+      v-if="athlete && athlete.bikes"
+      v-for="bike in athlete.bikes"
+      :key="bike.id"
+    >
+      <router-link
+        :to="'/bike/' + bike.id"
+        tag="div"
+        class="bike"
+      >
         <Card>
           <div class="px-6 pt-4 pb-6 text-center">
             <strong>{{bike.name}}</strong>
@@ -19,7 +21,10 @@
               {{convertToMiles(bike.distance)}}
             </div>
 
-            <div v-if="bike.primary" class="primary bg-indigo-darker text-white text-xs tracking-wide px-2 py-1">primary</div>
+            <div
+              v-if="bike.primary"
+              class="primary bg-indigo-darker text-white text-xs tracking-wide px-2 py-1"
+            >primary</div>
           </div>
         </Card>
       </router-link>

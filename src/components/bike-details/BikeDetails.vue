@@ -1,14 +1,11 @@
 <template>
   <div>
-    <Title :title="bike.name" />
+    <Title
+      v-if="bike"
+      :title="bike.name"
+    />
 
-    <Card v-if="!bike">
-      <content-placeholders :rounded="true" :animated="true" :centered="true" class="mt-4">
-        <content-placeholders-img />
-        <content-placeholders-heading />
-        <content-placeholders-text />
-      </content-placeholders>
-    </Card>
+    <LoaderWithImage v-if="!bike" />
 
     <div v-if="bike">
       <Card class="bike">
@@ -18,9 +15,16 @@
             {{convertToMiles(bike.distance)}}
           </div>
 
-          <div v-if="bike.primary" class="primary bg-indigo-darker text-white text-xs tracking-wide px-2 py-1">primary</div>
+          <div
+            v-if="bike.primary"
+            class="primary bg-indigo-darker text-white text-xs tracking-wide px-2 py-1"
+          >primary</div>
         </div>
       </Card>
+    </div>
+
+    <div v-if="bike">
+      <BikeCheck />
     </div>
   </div>
 </template>

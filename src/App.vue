@@ -33,13 +33,14 @@ export default {
     'athlete'
   ]),
   methods: {
-    ...mapActions(['getStravaAuthCode', 'getAthlete'])
+    ...mapActions(['getStravaAuthCode', 'getAthlete', 'getAthleteStats'])
   },
 
   created: async function() {
     await this.getStravaAuthCode()
     if (this.stravaAuthorised) {
       this.getAthlete()
+      this.getAthleteStats(this.athlete.id)
     }
   }
 }

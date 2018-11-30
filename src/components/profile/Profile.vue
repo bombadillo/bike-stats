@@ -1,15 +1,20 @@
 <template>
   <div>
     <Title :title="'My Profile'" />
-    <Card>
-      <content-placeholders :rounded="true" :animated="true" :centered="true" v-if="!athlete" class="mt-4">
-        <content-placeholders-img />
-        <content-placeholders-heading />
-        <content-placeholders-text />
-      </content-placeholders>
 
-      <div v-if="athlete" class="px-6 pt-4 pb-6 text-center">
-        <img v-if="athlete.profile" class="w-20 h-20 rounded-full" v-bind:src="athlete.profile" alt="Avatar">
+    <LoaderWithImage v-if="!athlete" />
+
+    <Card>
+      <div
+        v-if="athlete"
+        class="px-6 pt-4 pb-6 text-center"
+      >
+        <img
+          v-if="athlete.profile"
+          class="w-20 h-20 rounded-full"
+          v-bind:src="athlete.profile"
+          alt="Avatar"
+        >
         <div class="pt-4">
           <h4>Name</h4>
           <p class="pt-2">

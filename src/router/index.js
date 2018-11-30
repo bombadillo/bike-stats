@@ -9,6 +9,7 @@ import Profile from '@/components/profile/Profile'
 import Logout from '@/components/Logout'
 import Bikes from '@/components/bikes/Bikes'
 import BikeDetails from '@/components/bike-details/BikeDetails'
+import BikeCheckAdd from '@/components/bike-check-add/BikeCheckAdd'
 
 Vue.use(Router)
 
@@ -84,6 +85,14 @@ let router = new Router({
       path: '/bike/:id',
       name: 'BikeDetails',
       component: BikeDetails,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/bike/:id/bikeCheck/add',
+      name: 'BikeCheckAdd',
+      component: BikeCheckAdd,
       meta: {
         requiresAuth: true
       }

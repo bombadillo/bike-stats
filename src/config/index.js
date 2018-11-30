@@ -28,7 +28,10 @@ if (isProd) {
       responseType: 'code'
     },
     bikeStatsApi: {
-      userCreate: 'http://localhost:5000/user'
+      userCreate: 'http://localhost:5000/user',
+      bikeCheckRetrieve: 'http://localhost:5000/bikeCheck',
+      bikeCheckCreate: 'http://localhost:5000/bikeCheck',
+      bikeCheckUpdate: 'http://localhost:5000/bikeCheck'
     }
   }
 }
