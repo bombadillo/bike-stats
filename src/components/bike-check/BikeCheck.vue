@@ -26,7 +26,7 @@
             <strong class="capitalize">Every {{check.distanceInterval}} miles</strong>
           </div>
 
-          <BikeCheckLastChecked :lastChecked="check.lastChecked" />
+          <BikeCheckLastChecked :check="check" />
 
           <div class="mt-4">
             <button
