@@ -111,6 +111,7 @@ var actions = {
       .catch(error => {})
   },
   getBike: (context, bikeId) => {
+    console.log('getting bike')
     bikeRetriever
       .retrieveById(bikeId)
       .then(bike => {
@@ -147,6 +148,7 @@ var actions = {
   },
   updateBikeCheck: (context, bikeCheckUpdate) => {
     console.log('updating bike check')
+    bikeCheckUpdate.stravaId = context.state.athlete.stravaId
     bikeCheckUpdater
       .update(bikeCheckUpdate)
       .then(() => {
