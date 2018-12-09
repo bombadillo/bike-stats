@@ -5,7 +5,7 @@ var convert = function(metres) {
 
 var convertValue = function(metres) {
   var miles = Math.trunc(metres * 0.000621371)
-  return miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return miles
 }
 
 export default {

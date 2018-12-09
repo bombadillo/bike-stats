@@ -13,6 +13,12 @@ if (isProd) {
       clientSecret: '57230d9e96cf5eb1f1cf744b6947919ad51a2e52',
       redirectUri: 'https://chrismumford.xyz/bikestats/strava/authorised',
       responseType: 'code'
+    },
+    bikeStatsApi: {
+      userCreate: 'https://chrismumford.xyz/bike-stats-api/user',
+      bikeCheckRetrieve: 'https://chrismumford.xyz/bike-stats-api/bikeCheck',
+      bikeCheckCreate: 'https://chrismumford.xyz/bike-stats-api/bikeCheck',
+      bikeCheckUpdate: 'https://chrismumford.xyz/bike-stats-api/bikeCheck'
     }
   }
 } else {
@@ -28,10 +34,10 @@ if (isProd) {
       responseType: 'code'
     },
     bikeStatsApi: {
-      userCreate: 'http://localhost:5000/user',
-      bikeCheckRetrieve: 'http://localhost:5000/bikeCheck',
-      bikeCheckCreate: 'http://localhost:5000/bikeCheck',
-      bikeCheckUpdate: 'http://localhost:5000/bikeCheck'
+      userCreate: 'http://localhost:5003/user',
+      bikeCheckRetrieve: 'http://localhost:5003/bikeCheck',
+      bikeCheckCreate: 'http://localhost:5003/bikeCheck',
+      bikeCheckUpdate: 'http://localhost:5003/bikeCheck'
     }
   }
 }
