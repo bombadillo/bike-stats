@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-if="initialLoadComplete" id="app">
+    <div
+      v-if="initialLoadComplete"
+      id="app"
+    >
       <Header></Header>
 
       <Card v-if="stravaError">
@@ -8,7 +11,7 @@
           <i class="fab fa-strava"></i> {{stravaAuthMsg}}
         </p>
       </Card>
-      <router-view />
+      <router-view v-if="!stravaError" />
     </div>
 
     <Loading :display="!initialLoadComplete" />
@@ -33,15 +36,22 @@ export default {
     'athlete'
   ]),
   methods: {
-    ...mapActions(['getStravaAuthCode', 'getAthlete', 'getAthleteStats'])
-  },
-
-  created: async function() {
-    await this.getStravaAuthCode()
-    if (this.stravaAuthorised) {
-      this.getAthlete()
-      this.getAthleteStats(this.athlete.id)
+    ...mapActions(['getStravaAuthCode', 'getAthlete', 'getAthleteStats']),
+    getData: async function() {
+      await this.getStravaAuthCode()
+      console.log('created')
+      console.log(this.stravaAuthorised)
+      if (this.stravaAuthorised) {
+        this.getAthlete()
+        this.getAthleteStats(this.athlete.id)
+      }
     }
+  },
+  created: async function() {
+    this.getData()
+  },
+  updated: async function() {
+    this.getData()
   }
 }
 </script>
