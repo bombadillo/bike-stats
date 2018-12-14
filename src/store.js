@@ -25,6 +25,7 @@ var getters = {
   bike: state => state.bike,
   bikeChecks: state => state.bikeChecks,
   bikeCheckUpdated: state => state.bikeCheckUpdated,
+  bikeCheckAdded: state => state.bikeCheckAdded,
   initialLoadComplete: state => state.initialLoadComplete,
   latestActivity: state => state.latestActivity
 }
@@ -77,7 +78,6 @@ var mutations = {
 var actions = {
   getStravaAuthCode: async (context, authCode) => {
     let stravaAuthCode = authCode || localStorage.getItem('stravaAuthCode')
-    console.log(stravaAuthCode)
     if (!stravaAuthCode) {
       context.commit('SET_INITIAL_LOAD_COMPLETE')
       context.commit('SET_STRAVA_AUTHENTICATION_REQUIRED', true)
@@ -161,6 +161,9 @@ var actions = {
       .create(bikeCheck)
       .then(() => {
         context.commit('SET_BIKE_CHECK_ADDED', true)
+        setTimeout(() => {
+          context.commit('SET_BIKE_CHECK_ADDED', false)
+        }, 6000)
       })
       .catch(error => {
         context.commit('SET_BIKE_CHECK_ADDED', false)

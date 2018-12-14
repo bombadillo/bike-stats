@@ -4,7 +4,6 @@ import config from '../../config'
 
 var create = async bikeCheck => {
   try {
-    console.log(bikeCheck)
     var result = await axios.post(
       `${config.bikeStatsApi.bikeCheckCreate}`,
       bikeCheck

@@ -1,9 +1,19 @@
 <template>
   <div>
-    <Title :title="'Add bike check'" />
+    <div class="flex mx-6 my-2 justify-center">
+      <div class="lg:w-1/2 w-full h-12">
+        <router-link
+          :to="'/bike/' + $route.params.id"
+          tag="button"
+          class="bg-indigo-dark hover:bg-indigo-light text-white font-bold py-2 px-4 rounded"
+        >
+          <i class="fas fa-arrow-alt-circle-left"></i> Back to bike
+        </router-link>
+      </div>
+    </div>
 
     <Card class="bike-check">
-      <form class="w-full max-w-xs">
+      <form class="w-full">
         <div class="md:flex md:items-center mb-6">
           <div class="md:w-1/3">
             <label
@@ -54,6 +64,13 @@
         </div>
       </form>
     </Card>
+
+    <Toast
+      v-if="bikeCheckAdded"
+      :message="'Bike check added'"
+      :status="'error'"
+    />
+
   </div>
 </template>
 
@@ -66,11 +83,11 @@ export default {
   name: 'BikeCheckAdd',
   data() {
     return {
-      check: {
-        name: '',
-        distanceInterval: undefined
-      }
+      check: this.getInitialCheckValues()
     }
+  },
+  computed: {
+    ...mapGetters(['bikeCheckAdded'])
   },
   methods: {
     ...mapActions(['addBikeCheck']),
@@ -81,6 +98,13 @@ export default {
         distanceInterval: this.check.distanceInterval
       }
       this.addBikeCheck(check)
+      this.check = this.getInitialCheckValues()
+    },
+    getInitialCheckValues: function() {
+      return {
+        name: '',
+        distanceInterval: undefined
+      }
     }
   }
 }
