@@ -70,7 +70,6 @@
       :message="'Bike check added'"
       :status="'error'"
     />
-
   </div>
 </template>
 
