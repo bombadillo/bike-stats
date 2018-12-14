@@ -2,9 +2,12 @@
   <Card class="text-center">
     <div v-if="!redirecting">
       <div class="text-xl mb-2 px-2 pt-4">
-        <button v-on:click="redirect" to="strava/getauth" class="bg-indigo-darker text-white py-2 px-4 border border-grey-light rounded shadow lg:w-1/2 no-underline">
-          <i class="fab fa-strava"></i>
-          <small> Get my stats</small>
+        <button
+          v-on:click="redirect"
+          to="strava/getauth"
+          class="bg-indigo-darker text-white py-2 px-4 border border-grey-light rounded shadow lg:w-1/2 no-underline"
+        >
+          <i class="fab fa-strava"></i> <small> Get my stats</small>
         </button>
       </div>
       <p class="text-grey-darker px-6 py-4 text-sm">
@@ -13,7 +16,7 @@
     </div>
     <div v-if="redirecting" class="text-center">
       <p class="text-grey-darker px-6 py-4 text-sm">
-        <i class="fab fa-strava"></i> {{redirectionMessag}}
+        <i class="fab fa-strava"></i> {{ redirectionMessag }}
       </p>
     </div>
   </Card>
@@ -39,5 +42,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

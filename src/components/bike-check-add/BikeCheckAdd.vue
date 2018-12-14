@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <Title :title="'Add bike check'" />
 
     <Card class="bike-check">
@@ -20,7 +19,7 @@
               class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple"
               id="name"
               type="text"
-            >
+            />
           </div>
         </div>
         <div class="md:flex md:items-center mb-6">
@@ -38,7 +37,7 @@
               class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple"
               id="distanceInterval"
               type="text"
-            >
+            />
           </div>
         </div>
         <div class=" md:flex md:items-center">
@@ -55,7 +54,6 @@
         </div>
       </form>
     </Card>
-
   </div>
 </template>
 

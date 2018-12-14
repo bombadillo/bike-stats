@@ -1,7 +1,7 @@
 <template>
   <Card class="text-center">
     <p class="text-grey-darker px-6 py-4 text-sm">
-      <i class="fab fa-strava"></i> {{msg}}
+      <i class="fab fa-strava"></i> {{ msg }}
     </p>
   </Card>
 </template>
@@ -23,5 +23,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

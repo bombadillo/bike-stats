@@ -1,14 +1,11 @@
 <template>
   <div>
-    <div
-      v-if="initialLoadComplete"
-      id="app"
-    >
+    <div v-if="initialLoadComplete" id="app">
       <Header></Header>
 
       <Card v-if="stravaError">
         <p class="text-red-dark px-6 py-4">
-          <i class="fab fa-strava"></i> {{stravaAuthMsg}}
+          <i class="fab fa-strava"></i> {{ stravaAuthMsg }}
         </p>
       </Card>
       <router-view v-if="!stravaError" />

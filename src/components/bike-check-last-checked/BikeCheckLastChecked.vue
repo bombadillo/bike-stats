@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="check.lastChecked"
-      class="w-full"
-    >
+    <div v-if="check.lastChecked" class="w-full">
       <div v-if="lastCheckedPercentage > 0 && lastCheckedPercentage < 100">
         <div
           :class="`h-2 mt-4 bg-${progressColour}-light`"
@@ -12,27 +9,32 @@
       </div>
 
       <div v-if="lastCheckedPercentage >= 0 && lastCheckedPercentage < 70">
-        <div class="mt-4 text-green-light"> <i class="far fa-check-circle"></i> {{milesSinceLastCheck}} miles since last check</div>
+        <div class="mt-4 text-green-light">
+          <i class="far fa-check-circle"></i> {{ milesSinceLastCheck }} miles
+          since last check
+        </div>
       </div>
 
       <div v-if="lastCheckedPercentage >= 70 && lastCheckedPercentage < 100">
-        <div class="mt-4 text-orange-base"> <i class="far fa-check-circle"></i> {{milesSinceLastCheck}} miles since last check</div>
+        <div class="mt-4 text-orange-base">
+          <i class="far fa-check-circle"></i> {{ milesSinceLastCheck }} miles
+          since last check
+        </div>
       </div>
 
-      <div
-        v-if="lastCheckedPercentage >= 100"
-        class="w-full"
-      >
+      <div v-if="lastCheckedPercentage >= 100" class="w-full">
         <div class="h-2 mt-4 bg-red-light w-ful"></div>
-        <div class="mt-4 text-red-light"> <i class="fas fa-exclamation"></i> Hasn't been checked in {{milesSinceLastCheckReadable}}!</div>
+        <div class="mt-4 text-red-light">
+          <i class="fas fa-exclamation"></i> Hasn't been checked in
+          {{ milesSinceLastCheckReadable }}!
+        </div>
       </div>
     </div>
-    <div
-      v-if="!check.lastChecked"
-      class="w-full"
-    >
+    <div v-if="!check.lastChecked" class="w-full">
       <div class="h-2 mt-4 bg-red-light w-ful"></div>
-      <div class="mt-4 text-red-light"> <i class="fas fa-exclamation"></i> Never been checked</div>
+      <div class="mt-4 text-red-light">
+        <i class="fas fa-exclamation"></i> Never been checked
+      </div>
     </div>
   </div>
 </template>

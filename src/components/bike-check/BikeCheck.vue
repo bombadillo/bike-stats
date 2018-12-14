@@ -1,10 +1,6 @@
 <template>
   <div>
-
-    <Title
-      :title="'Bike checks'"
-      :size="'medium'"
-    />
+    <Title :title="'Bike checks'" :size="'medium'" />
 
     <LoaderWithImage v-if="!bikeChecks" />
 
@@ -16,14 +12,12 @@
       >
         <div class="px-6 pt-4 pb-6 text-center">
           <div class="t mt-2">
-            <Title
-              class="capitalize"
-              :title="check.name"
-              :size="'medium'"
-            />
+            <Title class="capitalize" :title="check.name" :size="'medium'" />
           </div>
           <div class="mt-2">
-            <strong class="capitalize">Every {{check.distanceInterval}} miles</strong>
+            <strong class="capitalize"
+              >Every {{ check.distanceInterval }} miles</strong
+            >
           </div>
 
           <BikeCheckLastChecked :check="check" />
@@ -48,7 +42,6 @@
       </Card>
 
       <BikeCheckAddButton />
-
     </div>
   </div>
 </template>

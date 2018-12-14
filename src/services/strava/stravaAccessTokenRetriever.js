@@ -21,7 +21,7 @@ var retrieve = function(code) {
         }
       })
       .catch(error => {
-        reject()
+        reject(error)
       })
   })
 }

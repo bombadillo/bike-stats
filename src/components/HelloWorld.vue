@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <Dashboard v-if="athlete" />
-  </div>
+  <div><Dashboard v-if="athlete" /></div>
 </template>
 
 <script>
@@ -22,5 +20,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

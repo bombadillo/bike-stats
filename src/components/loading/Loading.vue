@@ -1,10 +1,19 @@
 <template>
-  <div v-if="!hideLoader" class="bg bg-indigo-darker" v-bind:class="{ display: showLoader }">
+  <div
+    v-if="!hideLoader"
+    class="bg bg-indigo-darker"
+    v-bind:class="{ display: showLoader }"
+  >
     <div id="nuotron">
       <div class="ellipse"></div>
       <div class="dot"></div>
     </div>
-    <a id="text" href="http://facebook.com/YahiaRefaiea" target="_blank" v-bind:class="{ 'text--hover': showText }">
+    <a
+      id="text"
+      href="http://facebook.com/YahiaRefaiea"
+      target="_blank"
+      v-bind:class="{ 'text--hover': showText }"
+    >
       <div class="website">
         <div>Click to follow the founder's social</div>
         <div>media updates.</div>
