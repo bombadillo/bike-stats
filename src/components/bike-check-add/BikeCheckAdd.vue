@@ -68,7 +68,7 @@
     <Toast
       v-if="bikeCheckAdded"
       :message="'Bike check added'"
-      :status="'error'"
+      :status="'success'"
     />
   </div>
 </template>
