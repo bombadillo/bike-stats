@@ -2,6 +2,12 @@
   <div>
     <LoaderWithoutImage v-if="loadingAthleteStats" />
 
+    <Goal
+      v-if="athleteStats"
+      :current="athleteStats.ytd_ride_totals.distance"
+      goal="7000"
+    />
+
     <Card
       v-if="athleteStats"
       class="text-center"

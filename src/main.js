@@ -21,6 +21,7 @@ import Map from './components/map/Map'
 import StatItem from './components/stats/StatItem'
 import Title from './components/title/Title'
 import Message from './components/message/Message'
+import Goal from './components/goal/Goal'
 import BikeCheck from './components/bike-check/BikeCheck'
 import BikeCheckLastChecked from './components/bike-check-last-checked/BikeCheckLastChecked'
 import BikeCheckAddButton from './components/bike-check-add-button/BikeCheckAddButton'
@@ -50,6 +51,7 @@ Vue.component('Map', Map)
 Vue.component('StatItem', StatItem)
 Vue.component('Title', Title)
 Vue.component('Message', Message)
+Vue.component('Goal', Goal)
 Vue.component('BikeCheck', BikeCheck)
 Vue.component('BikeCheckLastChecked', BikeCheckLastChecked)
 Vue.component('BikeCheckAddButton', BikeCheckAddButton)
