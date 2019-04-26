@@ -11,7 +11,6 @@
       <content-placeholders-text />
     </content-placeholders>
   </Card>
-
 </template>
 
 <script>

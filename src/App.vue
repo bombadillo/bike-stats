@@ -8,10 +8,10 @@
 
       <Card v-if="stravaError">
         <p class="text-red-dark px-6 py-4">
-          <i class="fab fa-strava"></i> {{stravaAuthMsg}}
+          <i class="fab fa-strava"></i> {{ stravaAuthMsg }}
         </p>
       </Card>
-      <router-view />
+      <router-view v-if="!stravaError" />
     </div>
 
     <Loading :display="!initialLoadComplete" />

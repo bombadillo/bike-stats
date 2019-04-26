@@ -1,5 +1,9 @@
 <template>
-  <div v-if="activity" id="map" class="map mt-3 no-margin border-solid border-b border-t border-solid border-grey-light"></div>
+  <div
+    v-if="activity"
+    id="map"
+    class="map mt-3 no-margin border-solid border-b border-t border-solid border-grey-light"
+  ></div>
 </template>
 
 <script>

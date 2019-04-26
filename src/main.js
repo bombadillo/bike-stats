@@ -25,6 +25,7 @@ import BikeCheckLastChecked from './components/bike-check-last-checked/BikeCheck
 import BikeCheckAddButton from './components/bike-check-add-button/BikeCheckAddButton'
 import LoaderWithImage from './components/loader-with-image/LoaderWithImage'
 import LoaderWithoutImage from './components/loader-without-image/LoaderWithoutImage'
+import Toast from './components/toast/Toast'
 
 import store from './store'
 
@@ -52,6 +53,7 @@ Vue.component('BikeCheckLastChecked', BikeCheckLastChecked)
 Vue.component('BikeCheckAddButton', BikeCheckAddButton)
 Vue.component('LoaderWithImage', LoaderWithImage)
 Vue.component('LoaderWithoutImage', LoaderWithoutImage)
+Vue.component('Toast', Toast)
 
 new Vue({
   el: '#app',

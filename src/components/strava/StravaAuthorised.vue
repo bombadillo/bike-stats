@@ -1,5 +1,3 @@
-
-
 <template>
   <Card
     v-if="stravaError || stravaAuthorised"
@@ -17,7 +15,6 @@
     >
       <i class="fab fa-strava"></i> {{stravaAuthSuccessMsg}}
     </p>
-
   </Card>
 </template>
 
@@ -48,5 +45,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

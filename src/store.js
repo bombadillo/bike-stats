@@ -16,6 +16,8 @@ Vue.use(Vuex)
 var getters = {
   athlete: state => state.athlete,
   athleteStats: state => state.athleteStats,
+  loadingAthleteStats: state => state.loadingAthleteStats,
+  athleteStatsLoadError: state => state.athleteStatsLoadError,
   stravaAuthorised: state => state.stravaAuthorised,
   gettingStravaAccessToken: state => state.gettingStravaAccessToken,
   stravaError: state => state.stravaError,
@@ -23,6 +25,7 @@ var getters = {
   bike: state => state.bike,
   bikeChecks: state => state.bikeChecks,
   bikeCheckUpdated: state => state.bikeCheckUpdated,
+  bikeCheckAdded: state => state.bikeCheckAdded,
   initialLoadComplete: state => state.initialLoadComplete,
   latestActivity: state => state.latestActivity
 }
@@ -33,6 +36,12 @@ var mutations = {
   },
   SET_ATHLETE_STATS: (state, athleteStats) => {
     state.athleteStats = athleteStats
+  },
+  SET_LOADING_ATHLETE_STATS: (state, loadingAthleteStats) => {
+    state.loadingAthleteStats = loadingAthleteStats
+  },
+  SET_ATHLETE_STATS_LOAD_ERROR: (state, athleteStatsLoadError) => {
+    state.athleteStatsLoadError = athleteStatsLoadError
   },
   SET_STRAVA_ERROR: (state, isError) => {
     state.stravaError = isError
@@ -77,7 +86,9 @@ var actions = {
 
     context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', true)
     try {
+      console.log('getting response')
       const response = await stravaAccessTokenRetriever.retrieve(stravaAuthCode)
+      console.log(response)
 
       if (response.athlete) {
         localStorage.setItem('stravaAccessToken', response.access_token)
@@ -86,18 +97,28 @@ var actions = {
         context.commit('SET_INITIAL_LOAD_COMPLETE')
       }
     } catch (error) {
+      console.log(error)
       context.commit('SET_STRAVA_ERROR', true)
       context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
       context.commit('SET_INITIAL_LOAD_COMPLETE')
     }
   },
   getAthleteStats: (context, athleteId) => {
+    console.log('getting athlete stats')
+    context.commit('SET_LOADING_ATHLETE_STATS', true)
     athleteStatsRetriever
       .retrieveById(athleteId)
       .then(stats => {
+        console.log('got athlete stats')
         context.commit('SET_ATHLETE_STATS', stats)
+        context.commit('SET_LOADING_ATHLETE_STATS', false)
       })
-      .catch(error => {})
+      .catch(error => {
+        console.log('error getting athlete stats')
+        console.log(error)
+        context.commit('SET_LOADING_ATHLETE_STATS', false)
+        context.commit('SET_ATHLETE_STATS_LOAD_ERROR', false)
+      })
   },
   getAthlete: async context => {
     athleteRetriever
@@ -139,6 +160,9 @@ var actions = {
       .create(bikeCheck)
       .then(() => {
         context.commit('SET_BIKE_CHECK_ADDED', true)
+        setTimeout(() => {
+          context.commit('SET_BIKE_CHECK_ADDED', false)
+        }, 6000)
       })
       .catch(error => {
         context.commit('SET_BIKE_CHECK_ADDED', false)
@@ -164,6 +188,8 @@ export default new Vuex.Store({
     athlete: undefined,
     stravaAuthorised: undefined,
     athleteStats: undefined,
+    loadingAthleteStats: undefined,
+    athleteStatsLoadError: undefined,
     gettingStravaAccessToken: undefined,
     stravaError: undefined,
     bike: undefined,
