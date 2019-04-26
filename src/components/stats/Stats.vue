@@ -49,6 +49,35 @@
           </div>
 
           <div class="w-1/2">
+            <h2>YTD</h2>
+            <StatItem
+              :statName="'Rides'"
+              :statValue="athleteStats.ytd_ride_totals.count"
+            />
+            <StatItem
+              :statName="'Distance'"
+              :statValue="
+                    convertToMiles(athleteStats.ytd_ride_totals.distance)
+                  "
+            />
+            <StatItem
+              :statName="'Elevation'"
+              :statValue="
+                    convertToFeet(athleteStats.ytd_ride_totals.elevation_gain)
+                  "
+            />
+            <StatItem
+              :statName="'Moving time'"
+              :statValue="
+                    convertToTime(athleteStats.ytd_ride_totals.moving_time)
+                  "
+            />
+          </div>
+
+        </div>
+
+        <div class="flex">
+          <div class="w-1/2 ml-auto mr-auto">
             <h2>Total</h2>
             <StatItem
               :statName="'Rides'"
