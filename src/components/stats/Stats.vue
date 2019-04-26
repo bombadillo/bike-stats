@@ -9,14 +9,11 @@
       <h2 class="no-margin border-solid border-b border-solid border-grey-lighter pb-3 text-center">
         <i class="fas fa-chart-line"></i> Stats
       </h2>
-      <div
+
+      <Message
         v-if="error"
-        class="bg-red-lightest border-l-4 border-red text-red-dark p-4 mt-4"
-        role="alert"
-      >
-        <p class="font-bold">Oops <i class="far fa-sad-cry"></i></p>
-        <p>Failed getting Recent stats</p>
-      </div>
+        message="Failed getting Recent stats"
+      />
 
       <div
         v-if="athleteStats && !error"
@@ -25,91 +22,60 @@
         <div class="flex">
           <div class="w-1/2">
             <h2>Recent</h2>
-            <div class="flex my-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Rides'"
-                  :statValue="athleteStats.recent_ride_totals.count"
-                />
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Distance'"
-                  :statValue="
+            <StatItem
+              :statName="'Rides'"
+              :statValue="athleteStats.recent_ride_totals.count"
+            />
+            <StatItem
+              :statName="'Distance'"
+              :statValue="
                     convertToMiles(athleteStats.recent_ride_totals.distance)
                   "
-                />
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Elevation'"
-                  :statValue="
+            />
+            <StatItem
+              :statName="'Elevation'"
+              :statValue="
                     convertToFeet(
                       athleteStats.recent_ride_totals.elevation_gain
                     )
                   "
-                />
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Moving time'"
-                  :statValue="
+            />
+            <StatItem
+              :statName="'Moving time'"
+              :statValue="
                     convertToTime(athleteStats.recent_ride_totals.moving_time)
                   "
-                />
-              </div>
-            </div>
+            />
           </div>
 
           <div class="w-1/2">
             <h2>Total</h2>
-            <div class="flex my-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Rides'"
-                  :statValue="athleteStats.all_ride_totals.count"
-                />
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Distance'"
-                  :statValue="
+            <StatItem
+              :statName="'Rides'"
+              :statValue="athleteStats.all_ride_totals.count"
+            />
+            <StatItem
+              :statName="'Distance'"
+              :statValue="
                     convertToMiles(athleteStats.all_ride_totals.distance)
                   "
-                />
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Elevation'"
-                  :statValue="
+            />
+            <StatItem
+              :statName="'Elevation'"
+              :statValue="
                     convertToFeet(athleteStats.all_ride_totals.elevation_gain)
                   "
-                />
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <div class="w-full">
-                <StatItem
-                  :statName="'Moving time'"
-                  :statValue="
+            />
+            <StatItem
+              :statName="'Moving time'"
+              :statValue="
                     convertToTime(athleteStats.all_ride_totals.moving_time)
                   "
-                />
-              </div>
-            </div>
+            />
           </div>
         </div>
       </div>
+
     </Card>
   </div>
 </template>
