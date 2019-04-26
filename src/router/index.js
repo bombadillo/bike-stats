@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Foo from '@/components/Foo'
 import StravaGetAuth from '@/components/strava/StravaGetAuth'
 import StravaAuthorised from '@/components/strava/StravaAuthorised'
@@ -10,6 +9,7 @@ import Logout from '@/components/Logout'
 import Bikes from '@/components/bikes/Bikes'
 import BikeDetails from '@/components/bike-details/BikeDetails'
 import BikeCheckAdd from '@/components/bike-check-add/BikeCheckAdd'
+import Dashboard from '@/components/dashboard/Dashboard'
 
 Vue.use(Router)
 
@@ -19,8 +19,8 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'Dashboard',
+      component: Dashboard,
       meta: {
         requiresAuth: true
       }

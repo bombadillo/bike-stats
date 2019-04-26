@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-if="initialLoadComplete" id="app">
+    <div
+      v-if="initialLoadComplete"
+      id="app"
+    >
       <Header></Header>
 
       <Card v-if="stravaError">
@@ -26,22 +29,12 @@ export default {
       stravaAuthMsg: 'Failed to sync with Strava'
     }
   },
-  computed: mapGetters([
-    'stravaAuthorised',
-    'stravaError',
-    'initialLoadComplete',
-    'athlete'
-  ]),
+  computed: mapGetters(['stravaError', 'initialLoadComplete']),
   methods: {
-    ...mapActions(['getStravaAuthCode', 'getAthlete', 'getAthleteStats'])
+    ...mapActions(['getStravaAuthCode'])
   },
-
-  created: async function() {
-    await this.getStravaAuthCode()
-    if (this.stravaAuthorised) {
-      this.getAthlete()
-      this.getAthleteStats(this.athlete.id)
-    }
+  created: function() {
+    this.getStravaAuthCode()
   }
 }
 </script>

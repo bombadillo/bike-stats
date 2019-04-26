@@ -69,7 +69,6 @@ var mutations = {
 var actions = {
   getStravaAuthCode: async (context, authCode) => {
     let stravaAuthCode = authCode || localStorage.getItem('stravaAuthCode')
-
     if (!stravaAuthCode) {
       context.commit('SET_INITIAL_LOAD_COMPLETE')
       context.commit('SET_STRAVA_AUTHENTICATION_REQUIRED', true)
@@ -82,7 +81,6 @@ var actions = {
 
       if (response.athlete) {
         localStorage.setItem('stravaAccessToken', response.access_token)
-        context.commit('SET_ATHLETE', response.athlete)
         context.commit('SET_STRAVA_AUTHORISED', true)
         context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
         context.commit('SET_INITIAL_LOAD_COMPLETE')
@@ -101,11 +99,11 @@ var actions = {
       })
       .catch(error => {})
   },
-  getAthlete: context => {
+  getAthlete: async context => {
     athleteRetriever
       .retrieve()
-      .then(athlete => {
-        userCreator.create(athlete)
+      .then(async athlete => {
+        await userCreator.create(athlete)
         context.commit('SET_ATHLETE', athlete)
       })
       .catch(error => {})

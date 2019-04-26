@@ -1,11 +1,20 @@
 
 
 <template>
-  <Card v-if="stravaError || stravaAuthorised" class="text-center">
-    <p v-if="stravaError" class="text-red-dark px-6 py-4">
+  <Card
+    v-if="stravaError || stravaAuthorised"
+    class="text-center"
+  >
+    <p
+      v-if="stravaError"
+      class="text-red-dark px-6 py-4"
+    >
       <i class="fab fa-strava"></i> {{stravaAuthErrorMsg}}
     </p>
-    <p v-if="stravaAuthorised" class="text-gree-dark px-6 py-4">
+    <p
+      v-if="stravaAuthorised"
+      class="text-gree-dark px-6 py-4"
+    >
       <i class="fab fa-strava"></i> {{stravaAuthSuccessMsg}}
     </p>
 

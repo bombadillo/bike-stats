@@ -17,7 +17,7 @@
       </div>
 
       <div
-        v-if="athleteStats"
+        v-if="athleteStats && !error"
         class="mt-6"
       >
         <div class="flex">
@@ -116,7 +116,15 @@ export default {
   methods: {
     convertToFeet: feet => convertor.metreToFeet(feet),
     convertToMiles: feet => convertor.metreToMile(feet),
-    convertToTime: seconds => convertor.secondToTime(seconds)
+    convertToTime: seconds => convertor.secondToTime(seconds),
+    ...mapActions(['getAthleteStats'])
+  },
+  mounted: function() {
+    if (!this.athlete) {
+      console.log('cannot load stats as athlete not found')
+      this.error = true
+    }
+    this.getAthleteStats(this.athlete.stravaId)
   }
 }
 </script>

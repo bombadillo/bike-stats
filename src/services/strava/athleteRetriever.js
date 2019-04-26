@@ -1,7 +1,7 @@
 import config from '../../config/index'
 import axios from 'axios'
 
-var retrieve = function(athleteId) {
+var retrieve = function() {
   return new Promise((resolve, reject) => {
     var url = `${config.stravaApi.stravaAthleteUrl}/athlete`
     var accessToken = localStorage.getItem('stravaAccessToken')
