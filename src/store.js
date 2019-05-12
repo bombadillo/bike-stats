@@ -27,7 +27,8 @@ var getters = {
   bikeCheckUpdated: state => state.bikeCheckUpdated,
   bikeCheckAdded: state => state.bikeCheckAdded,
   initialLoadComplete: state => state.initialLoadComplete,
-  latestActivity: state => state.latestActivity
+  latestActivity: state => state.latestActivity,
+  activities: state => state.activities
 }
 
 var mutations = {
@@ -72,6 +73,9 @@ var mutations = {
   },
   SET_LATEST_ACTIVITY: (state, acitvity) => {
     state.latestActivity = acitvity
+  },
+  SET_ACTIVITIES: (state, activities) => {
+    state.activities = activities
   }
 }
 
@@ -155,6 +159,14 @@ var actions = {
       })
       .catch(error => {})
   },
+  getActivities: (context, pageNumber) => {
+    activityRetriever
+      .retrieveLatest(7, pageNumber)
+      .then(activities => {
+        context.commit('SET_ACTIVITIES', activities)
+      })
+      .catch(error => {})
+  },
   addBikeCheck: (context, bikeCheck) => {
     bikeCheckCreator
       .create(bikeCheck)
@@ -197,7 +209,8 @@ export default new Vuex.Store({
     bikeCheckAdded: undefined,
     bikeCheckUpdated: undefined,
     initialLoadComplete: undefined,
-    latestActivity: undefined
+    latestActivity: undefined,
+    activities: undefined
   },
   getters: getters,
   mutations: mutations,

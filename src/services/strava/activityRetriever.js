@@ -1,9 +1,9 @@
 import config from '../../config/index'
 import axios from 'axios'
 
-var retrieveLatest = function(count) {
+var retrieveLatest = function(count, page = 1) {
   return new Promise((resolve, reject) => {
-    var queryString = `?page=1&per_page=${count}`
+    var queryString = `?page=${page}&per_page=${count}`
     var url = `${
       config.stravaApi.stravaAthleteUrl
     }/athlete/activities${queryString}`

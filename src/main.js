@@ -17,6 +17,8 @@ import Logout from './components/Logout'
 import Bikes from './components/bikes/Bikes'
 import Loading from './components/loading/Loading'
 import LatestActivity from './components/latestActivity/LatestActivity'
+import Activities from './components/activities/Activities'
+import Activity from './components/activity/Activity'
 import Map from './components/map/Map'
 import StatItem from './components/stats/StatItem'
 import Title from './components/title/Title'
@@ -47,6 +49,8 @@ Vue.component('Logout', Logout)
 Vue.component('Bikes', Bikes)
 Vue.component('Loading', Loading)
 Vue.component('LatestActivity', LatestActivity)
+Vue.component('Activities', Activities)
+Vue.component('Activity', Activity)
 Vue.component('Map', Map)
 Vue.component('StatItem', StatItem)
 Vue.component('Title', Title)

@@ -10,6 +10,7 @@ import Bikes from '@/components/bikes/Bikes'
 import BikeDetails from '@/components/bike-details/BikeDetails'
 import BikeCheckAdd from '@/components/bike-check-add/BikeCheckAdd'
 import Dashboard from '@/components/dashboard/Dashboard'
+import Activities from '@/components/activities/Activities'
 
 Vue.use(Router)
 
@@ -93,6 +94,14 @@ let router = new Router({
       path: '/bike/:id/bikeCheck/add',
       name: 'BikeCheckAdd',
       component: BikeCheckAdd,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/activities',
+      name: 'Activities',
+      component: Activities,
       meta: {
         requiresAuth: true
       }
