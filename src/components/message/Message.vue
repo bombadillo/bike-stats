@@ -4,7 +4,7 @@
     role="alert"
   >
     <p class="font-bold">Oops <i class="far fa-sad-cry"></i></p>
-    <p>{{message}}</p>
+    <p>{{ message }}</p>
   </div>
 </template>
 
@@ -15,5 +15,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

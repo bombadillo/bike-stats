@@ -5,15 +5,8 @@
     <LoaderWithImage v-if="!athlete || !athlete.bikes" />
 
     <div v-if="athlete && athlete.bikes">
-      <div
-        v-for="bike in athlete.bikes"
-        :key="bike.id"
-      >
-        <router-link
-          :to="'/bike/' + bike.id"
-          tag="div"
-          class="bike"
-        >
+      <div v-for="bike in athlete.bikes" :key="bike.id">
+        <router-link :to="'/bike/' + bike.id" tag="div" class="bike">
           <Card classes="cursor-pointer">
             <div class="px-6 pt-4 pb-6 text-center">
               <strong>{{ bike.name }}</strong>

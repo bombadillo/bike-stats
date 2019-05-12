@@ -5,7 +5,9 @@
         <i class="fas fa-bullseye"></i> Goal
       </h2>
 
-      <h4 class="text-center mt-2 text-grey-dark">{{currentDistanceInMiles}}/{{goal}} miles</h4>
+      <h4 class="text-center mt-2 text-grey-dark">
+        {{ currentDistanceInMiles }}/{{ goal }} miles
+      </h4>
     </div>
 
     <div
@@ -13,13 +15,15 @@
       :style="{ width: goalCompletedPercentage + '%' }"
     ></div>
 
-    <h6 class="text-center mt-4"><span
+    <h6 class="text-center mt-4">
+      <span
         class="rounded-full px-2 py-1 text-xs font-bold text-white"
-        v-bind:class="{'bg-green': pace > 0, 'bg-red': pace < 0 }"
+        v-bind:class="{ 'bg-green': pace > 0, 'bg-red': pace < 0 }"
       >
-        {{Math.abs(pace)}} miles {{ pace > 0 ? 'ahead of pace' : 'behind pace' }}</span>
+        {{ Math.abs(pace) }} miles
+        {{ pace > 0 ? 'ahead of pace' : 'behind pace' }}</span
+      >
     </h6>
-
   </Card>
 </template>
 
@@ -70,5 +74,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

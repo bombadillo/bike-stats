@@ -8,23 +8,16 @@
       goal="7000"
     />
 
-    <Card
-      v-if="athleteStats"
-      class="text-center"
-    >
-      <h2 class="no-margin border-solid border-b border-solid border-grey-lighter pb-3 text-center">
+    <Card v-if="athleteStats" class="text-center">
+      <h2
+        class="no-margin border-solid border-b border-solid border-grey-lighter pb-3 text-center"
+      >
         <i class="fas fa-chart-line"></i> Stats
       </h2>
 
-      <Message
-        v-if="error"
-        message="Failed getting Recent stats"
-      />
+      <Message v-if="error" message="Failed getting Recent stats" />
 
-      <div
-        v-if="athleteStats && !error"
-        class="mt-6"
-      >
+      <div v-if="athleteStats && !error" class="mt-6">
         <div class="flex">
           <div class="w-1/2">
             <h2>Recent</h2>
@@ -35,22 +28,20 @@
             <StatItem
               :statName="'Distance'"
               :statValue="
-                    convertToMiles(athleteStats.recent_ride_totals.distance)
-                  "
+                convertToMiles(athleteStats.recent_ride_totals.distance)
+              "
             />
             <StatItem
               :statName="'Elevation'"
               :statValue="
-                    convertToFeet(
-                      athleteStats.recent_ride_totals.elevation_gain
-                    )
-                  "
+                convertToFeet(athleteStats.recent_ride_totals.elevation_gain)
+              "
             />
             <StatItem
               :statName="'Moving time'"
               :statValue="
-                    convertToTime(athleteStats.recent_ride_totals.moving_time)
-                  "
+                convertToTime(athleteStats.recent_ride_totals.moving_time)
+              "
             />
           </div>
 
@@ -62,24 +53,21 @@
             />
             <StatItem
               :statName="'Distance'"
-              :statValue="
-                    convertToMiles(athleteStats.ytd_ride_totals.distance)
-                  "
+              :statValue="convertToMiles(athleteStats.ytd_ride_totals.distance)"
             />
             <StatItem
               :statName="'Elevation'"
               :statValue="
-                    convertToFeet(athleteStats.ytd_ride_totals.elevation_gain)
-                  "
+                convertToFeet(athleteStats.ytd_ride_totals.elevation_gain)
+              "
             />
             <StatItem
               :statName="'Moving time'"
               :statValue="
-                    convertToTime(athleteStats.ytd_ride_totals.moving_time)
-                  "
+                convertToTime(athleteStats.ytd_ride_totals.moving_time)
+              "
             />
           </div>
-
         </div>
 
         <div class="flex">
@@ -91,26 +79,23 @@
             />
             <StatItem
               :statName="'Distance'"
-              :statValue="
-                    convertToMiles(athleteStats.all_ride_totals.distance)
-                  "
+              :statValue="convertToMiles(athleteStats.all_ride_totals.distance)"
             />
             <StatItem
               :statName="'Elevation'"
               :statValue="
-                    convertToFeet(athleteStats.all_ride_totals.elevation_gain)
-                  "
+                convertToFeet(athleteStats.all_ride_totals.elevation_gain)
+              "
             />
             <StatItem
               :statName="'Moving time'"
               :statValue="
-                    convertToTime(athleteStats.all_ride_totals.moving_time)
-                  "
+                convertToTime(athleteStats.all_ride_totals.moving_time)
+              "
             />
           </div>
         </div>
       </div>
-
     </Card>
   </div>
 </template>
@@ -150,5 +135,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

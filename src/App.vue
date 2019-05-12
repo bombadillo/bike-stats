@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="initialLoadComplete"
-      id="app"
-    >
+    <div v-if="initialLoadComplete" id="app">
       <Header></Header>
 
       <Card v-if="stravaError">
