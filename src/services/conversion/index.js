@@ -6,5 +6,6 @@ export default {
   metreToFeet: metreToFeetConvertor.convert,
   metreToMile: metreToMileConvertor.convert,
   metreToMileValue: metreToMileConvertor.convertValue,
-  secondToTime: secondToTimeConvertor.convert
+  secondToTime: secondToTimeConvertor.convert,
+  convertMetresPerSecond: metreToMileConvertor.convertMetresPerSecond
 }

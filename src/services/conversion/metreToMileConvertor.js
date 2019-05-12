@@ -4,11 +4,15 @@ var convert = function(metres) {
 }
 
 var convertValue = function(metres) {
-  var miles = Math.trunc(metres * 0.000621371)
-  return miles
+  return Math.trunc(metres * 0.000621371)
+}
+
+var convertMetresPerSecond = function(metres) {
+  return (metres * 2.23694).toFixed(1)
 }
 
 export default {
   convert: convert,
-  convertValue: convertValue
+  convertValue: convertValue,
+  convertMetresPerSecond: convertMetresPerSecond
 }
