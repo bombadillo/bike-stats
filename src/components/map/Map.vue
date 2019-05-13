@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="activity"
-    id="map"
+    ref="map"
     class="map mt-3 no-margin border-solid border-b border-t border-solid border-grey-light"
   ></div>
 </template>
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     initMap() {
-      this.map = L.map('map').setView([38.63, -90.23], 12)
+      this.map = L.map(this.$refs.map).setView([38.63, -90.23], 12)
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         detectRetina: true
       }).addTo(this.map)
