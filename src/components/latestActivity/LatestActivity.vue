@@ -6,8 +6,8 @@
       <i class="fas fa-stopwatch"></i> Latest Activity
     </h2>
     <div class="flex text-xs">
-      <div class="w-2/5">
-        <h3 class="mt-4 text-left">{{ latestActivity.name }}</h3>
+      <div class="w-full">
+        <h3 class="mt-4 text-center">{{ latestActivity.name }}</h3>
       </div>
       <div v-if="bike" class="w-3/5">
         <h3 class="mt-4 text-right">
