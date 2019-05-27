@@ -135,6 +135,11 @@ var actions = {
   },
   getBike: (context, bikeId) => {
     console.log('getting bike')
+    if (!bikeId) {
+      context.commit('SET_BIKE', undefined)
+      return
+    }
+
     bikeRetriever
       .retrieveById(bikeId)
       .then(bike => {
