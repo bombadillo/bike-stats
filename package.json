@@ -12,7 +12,7 @@
     "prettier": "prettier ./**/*.{js,vue} --write"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "leaflet": "^1.5.1",
     "polyline-encoded": "^0.0.8",
     "vue": "^2.6.10",
