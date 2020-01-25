@@ -5,7 +5,7 @@ var redirect = function() {
     config.stravaApi.clientId
   }&redirect_uri=${config.stravaApi.redirectUri}&response_type=${
     config.stravaApi.responseType
-  }`
+  }&scope=activity:read_all,profile:read_all`
   window.location.href = redirectUrl
 }
 

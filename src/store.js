@@ -10,6 +10,7 @@ import userCreator from './services/user/userCreator'
 import bikeCheckRetriever from './services/bike/bikeCheckRetriever'
 import bikeCheckCreator from './services/bike/bikeCheckCreator'
 import bikeCheckUpdater from './services/bike/bikeCheckUpdater'
+import dateComparer from './services/date/dateComparer'
 
 Vue.use(Vuex)
 
@@ -82,26 +83,42 @@ var mutations = {
 var actions = {
   getStravaAuthCode: async (context, authCode) => {
     let stravaAuthCode = authCode || localStorage.getItem('stravaAuthCode')
+    let tokenExpired = dateComparer.isDateInPast(
+      localStorage.getItem('stravaTokenExpiresAt')
+    )
+
     if (!stravaAuthCode) {
       context.commit('SET_INITIAL_LOAD_COMPLETE')
       context.commit('SET_STRAVA_AUTHENTICATION_REQUIRED', true)
       return
     }
 
+    if (localStorage.getItem('stravaAccessToken') && !tokenExpired) {
+      context.commit('SET_STRAVA_AUTHORISED', true)
+      context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
+      context.commit('SET_INITIAL_LOAD_COMPLETE')
+      return
+    }
+
     context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', true)
     try {
       console.log('getting response')
-      const response = await stravaAccessTokenRetriever.retrieve(stravaAuthCode)
-      console.log(response)
+      const response = await stravaAccessTokenRetriever.retrieve(
+        stravaAuthCode,
+        tokenExpired,
+        localStorage.getItem('stravaRefreshToken')
+      )
 
-      if (response.athlete) {
-        localStorage.setItem('stravaAccessToken', response.access_token)
-        context.commit('SET_STRAVA_AUTHORISED', true)
-        context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
-        context.commit('SET_INITIAL_LOAD_COMPLETE')
-      }
+      localStorage.setItem('stravaAccessToken', response.access_token)
+      localStorage.setItem('stravaRefreshToken', response.refresh_token)
+      localStorage.setItem('stravaTokenExpiresAt', response.expires_at)
+      context.commit('SET_STRAVA_AUTHORISED', true)
+      context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
+      context.commit('SET_INITIAL_LOAD_COMPLETE')
     } catch (error) {
       console.log(error)
+      localStorage.clear('stravaAuthCode')
+      localStorage.clear('stravaAccessToken')
       context.commit('SET_STRAVA_ERROR', true)
       context.commit('SET_GETTING_STRAVA_ACCESSTOKEN', false)
       context.commit('SET_INITIAL_LOAD_COMPLETE')
