@@ -83,9 +83,9 @@ var mutations = {
 var actions = {
   getStravaAuthCode: async (context, authCode) => {
     let stravaAuthCode = authCode || localStorage.getItem('stravaAuthCode')
-    let tokenExpired = dateComparer.isDateInPast(
-      localStorage.getItem('stravaTokenExpiresAt')
-    )
+    let tokenExpired = localStorage.getItem('stravaTokenExpiresAt')
+      ? dateComparer.isDateInPast(localStorage.getItem('stravaTokenExpiresAt'))
+      : false
 
     if (!stravaAuthCode) {
       context.commit('SET_INITIAL_LOAD_COMPLETE')
